@@ -7,6 +7,8 @@
 *.vscode
 *.editorconfig
 *.pdf
+asm/asm
+corewar/corewar
 
 save*
 unit*
