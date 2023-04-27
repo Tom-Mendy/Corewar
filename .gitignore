@@ -1,3 +1,23 @@
+*.git
+
+*~
+*.log
+
+*.gitignore
+*.vscode
+*.editorconfig
+*.pdf
+
+save*
+unit*
+vgcore*
+tmp
+
+perso*
+Test.c
+
+*intermediate
+
 # Prerequisites
 *.d
 
