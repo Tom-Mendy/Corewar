@@ -39,6 +39,8 @@ make_libs:
 	make -C lib/my_int_map
 
 clean:
+		make clean -C asm/
+		make clean -C corewar/
 		make clean -C lib/my_int
 		make clean -C lib/my_str
 		make clean -C lib/my_linked_list
@@ -47,6 +49,8 @@ clean:
 		rm -f $(OBJ)
 
 fclean: clean
+		make fclean -C asm/
+		make fclean -C corewar/
 		make fclean -C lib/my_int
 		make fclean -C lib/my_str
 		make fclean -C lib/my_linked_list

@@ -6,6 +6,7 @@
 ##
 
 SRC			=	main.c\
+				display_help.c\
 
 DIR_SRC =       $(addprefix src/, $(SRC))
 
@@ -18,7 +19,8 @@ LDLIBS		=	-L ../lib/							\
 				-l my_char_map						\
 				-l my_int_map						\
 
-CPPFLAGS	=	-I ../include/						\
+CPPFLAGS	=	-I include/							\
+				-I ../include/						\
 				-I ../lib/my_str/include			\
 				-I ../lib/my_linked_list/include	\
 				-I ../lib/my_int/include			\
