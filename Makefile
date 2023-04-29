@@ -5,22 +5,6 @@
 ## makefile
 ##
 
-LDLIBS		=	-L lib/							\
-				-l my_str						\
-				-l my_linked_list				\
-				-l my_int						\
-				-l my_char_map					\
-				-l my_int_map					\
-
-CPPFLAGS	=	-I include/						\
-				-I lib/my_str/include			\
-				-I lib/my_linked_list/include	\
-				-I lib/my_int/include			\
-				-I lib/my_char_map/include		\
-				-I lib/my_int_map/include		\
-
-CFLAGS		=	-Wall -Wextra -ggdb3
-
 LIBS		=	lib/libmy_str.a\
 				lib/libmy_linked_list.a\
 				lib/libmy_int.a\
@@ -66,12 +50,13 @@ unit_tests:	re
 		mkdir unit_tests
 		make unit_tests -C lib/my_int
 		make unit_tests -C lib/my_str
-		gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS)\
-		$(CPPFLAGS) $(LDLIBS) --coverage -lcriterion
+		make unit_tests -C lib/my_char_map
+		make unit_tests -C asm
 
 tests_run:	unit_tests
 		make tests_run -C lib/my_int
 		make tests_run -C lib/my_str
-		./unit_tests/unit_tests
+		make tests_run -C lib/my_char_map
+		make tests_run -C asm
 
 .PHONY: all clean fclean re make_libs tests_run

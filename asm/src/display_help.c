@@ -6,23 +6,21 @@
 */
 
 #include "my_project.h"
+#include "asm.h"
 
-int display_help(bool h_option_specified)
+int display_help(void)
 {
-    if (h_option_specified){
-        if (printf("USAGE\n") < 0)
-            return KO;
-        if (printf("./asm file_name[.s]\n") < 0)
-            return KO;
-        if (printf("DESCRIPTION\n") < 0)
-            return KO;
-        if (printf("file_name file in assembly language to be") < 0)
-            return KO;
-        if (printf(" converted into file_name.cor,\n") < 0)
-            return KO;
-        if (printf("an executable in the Virtual Machine.\n") < 0)
-            return KO;
-        return OK;
-    }
-    return 1;
+    if (my_put_str("USAGE\n") == -1)
+        return KO;
+    if (my_put_str("./asm file_name[.s]\n") == -1)
+        return KO;
+    if (my_put_str("DESCRIPTION\n") == -1)
+        return KO;
+    if (my_put_str("file_name file in assembly language to be") == -1)
+        return KO;
+    if (my_put_str(" converted into file_name.cor,\n") == -1)
+        return KO;
+    if (my_put_str("an executable in the Virtual Machine.\n") == -1)
+        return KO;
+    return OK;
 }

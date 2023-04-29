@@ -11,31 +11,29 @@ SRC     	=	my_create_char_map.c		\
 				my_count_char_in_char_map.c	\
 				my_char_map_len.c			\
 
-EXT			=	../my_str/src/my_str_len.c	\
-
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
-TEST		=	\
+EXT			=	../my_str/src/my_str_len.c	\
+
+TEST		=	test_my_create_char_map.c\
+				test_my_char_map_len.c\
 
 DIR_TESTS	=	$(addprefix tests/, $(TEST))
 
-OBJ			=	$(DIR_SRC:.c=.o)
-
 OBJ_EXT		=	$(EXT:.c=.o)
 
-OBJ_TESTS	=	$(DIR_TESTS:.c=.o)
+OBJ_DIR_SRC	=	$(DIR_SRC:.c=.o)
 
-CPPFLAGS	=	-I include\
-				-I ../my_str/include\
-				-I ../../include\
-				-Wextra\
-				-Wall\
-				-ggdb3\
+OBJ			=	$(OBJ_DIR_SRC) $(OBJ_EXT)
+
+CPPFLAGS	=	-I include				\
+				-I ../my_str/include	\
+				-I ../../include		\
 
 NAME		=	../libmy_char_map.a
 
-$(NAME):		$(OBJ) ${OBJ_EXT}
-	ar rcs $(NAME) $(OBJ) ${OBJ_EXT}
+$(NAME):	$(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 all: $(NAME)
 
@@ -51,8 +49,8 @@ re: fclean all
 
 unit_tests: re
 	mkdir unit_tests
-		gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) -I include/\
-		--coverage -lcriterion
+	gcc -o unit_tests/unit_tests $(DIR_SRC) $(EXT) $(DIR_TESTS) $(CPPFLAGS) \
+	--coverage -lcriterion
 
 tests_run:	unit_tests
 	./unit_tests/unit_tests

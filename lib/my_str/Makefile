@@ -68,7 +68,7 @@ TEST	=	test_my_put_char.c							\
 
 DIR_TESTS	=		$(addprefix tests/, $(TEST))
 
-EXT			=	../my_int/src/my_compute_power_rec.c	\
+EXT			=		../my_int/src/my_compute_power_rec.c	\
 
 OBJ_EXT		=		$(EXT:.c=.o)
 
@@ -76,7 +76,7 @@ OBJ			=		$(DIR_SRC:.c=.o)
 
 OBJ_TESTS	=		$(DIR_TESTS:.c=.o)
 
-CPPFLAGS	= -I include -Wextra -Wall -ggdb3
+CPPFLAGS	= 		-I include -Wextra -Wall -ggdb3
 
 NAME		=		../libmy_str.a
 
@@ -97,8 +97,8 @@ re: fclean all
 
 unit_tests: re
 	mkdir unit_tests
-		gcc -o unit_tests/unit_tests $(DIR_SRC) $(EXT) $(DIR_TESTS) -I include/\
-		--coverage -lcriterion
+	gcc -o unit_tests/unit_tests $(DIR_SRC) $(EXT) $(DIR_TESTS) -I include \
+	--coverage -lcriterion
 
 tests_run:	unit_tests
 	./unit_tests/unit_tests

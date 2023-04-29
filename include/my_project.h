@@ -5,8 +5,8 @@
 ** my_project
 */
 
-#ifndef MY_PROJECT_H_
-    #define MY_PROJECT_H_
+#ifndef _MY_PROJECT_H_
+    #define _MY_PROJECT_H_
     #include <stdbool.h>
     #include <stdlib.h>
     #include <unistd.h>
@@ -17,5 +17,4 @@
     #include "my_char_map.h"
     #include "my_int_map.h"
     #include "my_macro.h"
-    int my_project(int argc, char **argv);
-#endif /* !MY_PROJECT_H_ */
+#endif /* !_MY_PROJECT_H_ */

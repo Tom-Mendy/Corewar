@@ -5,12 +5,21 @@
 ## Makefile
 ##
 
-SRC			=	main.c\
-				display_help.c\
+SRC			=	display_help.c\
 
-DIR_SRC =       $(addprefix src/, $(SRC))
+DIR_SRC		=	$(addprefix src/, $(SRC))
 
-OBJ     =       $(DIR_SRC:.c=.o)
+MAIN		=	src/main.c
+
+TESTS		=	test_display_help.c\
+
+DIR_TESTS	=	$(addprefix tests/, $(TESTS))
+
+OBJ_MAIN	=	$(MAIN:.c=.o)
+
+OBJ_DIR_SRC	=	$(DIR_SRC:.c=.o)
+
+OBJ			=	$(OBJ_DIR_SRC) $(OBJ_MAIN)
 
 LDLIBS		=	-L ../lib/							\
 				-l my_str							\
@@ -37,11 +46,20 @@ $(NAME):	$(OBJ)
 all: $(NAME)
 
 clean:
-		rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME)
+	rm -rf unit_tests
 
 re:		fclean all
 
-.PHONY: all clean fclean
+unit_tests: re
+	mkdir unit_tests
+	gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) $(CPPFLAGS)\
+	$(LDLIBS) --coverage -lcriterion
+
+tests_run:	unit_tests
+	./unit_tests/unit_tests
+
+.PHONY: all clean fclean tests_run
