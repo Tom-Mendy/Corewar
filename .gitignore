@@ -3,6 +3,8 @@
 *~
 *.log
 
+*.s
+
 *.gitignore
 *.vscode
 *.editorconfig
