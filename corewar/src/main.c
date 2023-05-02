@@ -5,7 +5,12 @@
 ** corewar
 */
 
-int main(void)
+#include "my_project.h"
+#include "corewar.h"
+
+int main(int const argc, char *argv[])
 {
-    return 0;
+    if (my_str_cmp(argv[1], "-h") == 0)
+        return display_help();
+    return OK;
 }

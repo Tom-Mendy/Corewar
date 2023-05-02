@@ -1,15 +1,25 @@
 ##
 ## EPITECH PROJECT, 2023
-## B-CPE-110-BDX-1-1-antman-killian.trouve
+## antman
 ## File description:
 ## Makefile
 ##
 
-SRC			=	main.c\
+SRC			=	display_help.c\
 
-DIR_SRC =       $(addprefix src/, $(SRC))
+DIR_SRC		=	$(addprefix src/, $(SRC))
 
-OBJ     =       $(DIR_SRC:.c=.o)
+MAIN		=	src/main.c
+
+TESTS		=	test_display_help.c\
+
+DIR_TESTS	=	$(addprefix tests/, $(TESTS))
+
+OBJ_MAIN	=	$(MAIN:.c=.o)
+
+OBJ_DIR_SRC	=	$(DIR_SRC:.c=.o)
+
+OBJ			=	$(OBJ_DIR_SRC) $(OBJ_MAIN)
 
 LDLIBS		=	-L ../lib/							\
 				-l my_str							\
@@ -18,7 +28,8 @@ LDLIBS		=	-L ../lib/							\
 				-l my_char_map						\
 				-l my_int_map						\
 
-CPPFLAGS	=	-I ../include/						\
+CPPFLAGS	=	-I include/							\
+				-I ../include/						\
 				-I ../lib/my_str/include			\
 				-I ../lib/my_linked_list/include	\
 				-I ../lib/my_int/include			\
@@ -27,19 +38,28 @@ CPPFLAGS	=	-I ../include/						\
 
 CFLAGS		=	-Wall -Wextra -ggdb3
 
-NAME	= corewar
-
-all: $(NAME)
+NAME		=	corewar
 
 $(NAME):	$(OBJ)
 	gcc -o $(NAME) $(OBJ) $(LDLIBS) $(CPPFLAGS) $(CFLAGS)
 
+all: $(NAME)
+
 clean:
-		rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME)
+	rm -rf unit_tests
 
 re:		fclean all
 
-.PHONY: all clean fclean make_libs
+unit_tests: re
+	mkdir unit_tests
+	gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) $(CPPFLAGS)\
+	$(LDLIBS) --coverage -lcriterion
+
+tests_run:	unit_tests
+	./unit_tests/unit_tests
+
+.PHONY: all clean fclean tests_run
