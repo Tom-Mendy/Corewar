@@ -10,7 +10,13 @@
 
 int main(int const argc, char *argv[])
 {
+    if (argc < 2) {
+        write(2, "Error: Incorrect no. of arguments.\n", 36);
+        return KO;
+    }
     if (my_str_cmp(argv[1], "-h") == 0)
         return display_help();
+    if (check_input(argc, argv) == KO)
+        return KO;
     return OK;
 }

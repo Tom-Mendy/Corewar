@@ -14,7 +14,7 @@ AUTHORIZED FUNCTIONS :
 
 ---------------------------------------------------------------------------------------
 
-POJECT :
+PROJECT :
 
 Corewar is a computer simulation in which processors will share memory to run on.
 The project is based on a virtual machine in which the champions will fight for
@@ -39,12 +39,12 @@ the game. The last champion to execute the "live" instruction is declared winner
 EXAMPLES :
 
 -> Champion:
-            // displayed in game
-            .name "John Snow"               // name
-            .comment "Winter is coming"     // description
+                // displayed in game
+                .name "John Snow"               // name
+                .comment "Winter is coming"     // description
 
-            // instructions
-            sti r1, %:crow, %1
-    crow:   live %234
-            ld %0, r3
-            zjmp, %:crow
+                // instructions
+                sti r1, %:crow, %1
+        crow:   live %234
+                ld %0, r3
+                zjmp, %:crow

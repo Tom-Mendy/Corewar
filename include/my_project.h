@@ -11,6 +11,7 @@
     #include <stdlib.h>
     #include <unistd.h>
     #include <stdio.h>
+    #include <fcntl.h>
     #include "my_str.h"
     #include "my_linked_list.h"
     #include "spliter.h"

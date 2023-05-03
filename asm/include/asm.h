@@ -7,6 +7,8 @@
 
 #ifndef ASM_H_
     #define ASM_H_
+
     int display_help(void);
+    int check_input(int const ac, char *av[]);
 
 #endif /* !ASM_H_ */
