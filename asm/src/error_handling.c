@@ -8,7 +8,7 @@
 #include "my_project.h"
 #include "asm.h"
 
-int check_input(int const ac, char *av[])
+int check_input(char *av[])
 {
     int fd = open(av[1], O_RDONLY);
     if (av == NULL) {
@@ -17,7 +17,7 @@ int check_input(int const ac, char *av[])
         return KO;
     }
     if (fd == -1) {
-        write(2, "Error: Open file failed.\n", 26);
+        write(2, "Error: File does not exist.\n", 29);
         return KO;
     }
     close(fd);

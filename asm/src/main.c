@@ -16,7 +16,7 @@ int main(int const argc, char *argv[])
     }
     if (my_str_cmp(argv[1], "-h") == 0)
         return display_help();
-    if (check_input(argc, argv) == KO)
+    if (check_input(argv) == KO)
         return KO;
     return OK;
 }

@@ -5,7 +5,8 @@
 ## Makefile
 ##
 
-SRC			=	display_help.c\
+SRC			=	display_help.c	\
+				error_handling.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
