@@ -9,7 +9,7 @@
     #define _OP_H_
     #define MEM_SIZE                (6 * 1024)
     #define IDX_MOD                 512   /* modulo of the index < */
-    #define MAX_ARGS_NUMBER         4     /* this may not be changed\
+    #define MAX_ARGS_NUMBER         4     /* this may not be changed
                                             2^*IND_SIZE */
     #define COMMENT_CHAR            '#'
     #define LABEL_CHAR              ':'
@@ -31,7 +31,7 @@
     #define T_IND           4
                                     // indirect always relative
                                     // (ld 1, r1 put what's in the address)
-                                    // (1 + pc) into r1 (4 bytes))
+                                    // (1 + pc) into r1 (4 bytes)
     #define T_LAB           8       /* LABEL */
     typedef struct op_s {
         char         *mnemonique;
