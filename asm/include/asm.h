@@ -8,6 +8,7 @@
 #ifndef ASM_H_
     #define ASM_H_
 
+    int asm_function(char *filename);
     int display_help(void);
     int check_input(char *av[]);
 
