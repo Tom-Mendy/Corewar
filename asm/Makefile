@@ -7,6 +7,7 @@
 
 SRC			=	display_help.c	\
 				asm.c			\
+				generate_output_filename.c\
 				error_handling.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
