@@ -12,6 +12,8 @@
 
 int init_header_file(header_t *header_file, char *name, char *comment)
 {
+    if (header_file == NULL || name == NULL || comment == NULL)
+        return KO;
     header_file->magic = COREWAR_EXEC_MAGIC;
     for (int i = 0; i < PROG_NAME_LENGTH; i += 1){
         header_file->prog_name[i] = 0;
@@ -25,6 +27,7 @@ int init_header_file(header_t *header_file, char *name, char *comment)
     for (int i = 0; comment[i] != '\0'; i += 1){
         header_file->comment[i] = comment[i];
     }
+    return OK;
 }
 
 int asm_function(char *filename)
@@ -34,7 +37,8 @@ int asm_function(char *filename)
     header_t *header_file = malloc(sizeof(header_t));
     if (header_file == NULL)
         return 84;
-    init_header_file(header_file, name, comment);
+    if (init_header_file(header_file, name, comment) == KO)
+        return KO;
     int output_fd = open("test.txt", O_CREAT | O_WRONLY, S_IRWXU);
     if (output_fd == -1)
         return KO;
