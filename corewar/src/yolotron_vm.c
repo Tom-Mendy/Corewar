@@ -77,7 +77,7 @@ int main(int argc, char **argv)
     if (str_file == NULL)
         return -1;
     int have_to_read = 0;
-    for (int i = 0; str_file[i] != '\0'|| have_to_read > i; i += 1){
+    for (int i = 0; str_file[i] != '\0' || have_to_read > i; i += 1) {
         u_int8_t tmp_int = str_file[i];
         if (str_file[i] == 1 || str_file[i] == 2)
             have_to_read = i + 9;
