@@ -67,7 +67,6 @@ int asm_function(char *filename)
     char *output_filename = generate_output_filename(filename);
     if (output_filename == NULL)
         return 84;
-    printf("%s", output_filename);
     header_t *header_file = malloc(sizeof(header_t));
     if (header_file == NULL)
         return 84;

@@ -30,7 +30,6 @@ OBJ_EXT		=	$(EXT:.c=.o)
 OBJ_TESTS	=	$(DIR_TESTS:.c=.o)
 
 CPPFLAGS	=	-I include\
-				-I ../my_str/include\
 				-I ../my_int/include\
 				-I ../../include\
 				-Wextra\
@@ -56,8 +55,8 @@ re: fclean all
 
 unit_tests: re
 	mkdir unit_tests
-		gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) -I include/\
-		--coverage -lcriterion
+	gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) -I include/ \
+	--coverage -lcriterion
 
 tests_run:	unit_tests
 	./unit_tests/unit_tests

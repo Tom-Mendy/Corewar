@@ -52,14 +52,12 @@ fclean: clean
 
 re: fclean all
 
-unit_tests:
+unit_tests:	$(OBJ) $(OBJ_EXT)
 	mkdir unit_tests
-
-unit_tests/unit_tests:	unit_tests $(OBJ) $(OBJ_EXT)
 	gcc -o unit_tests/unit_tests $(OBJ) $(OBJ_EXT) $(DIR_TESTS) -I include \
 	--coverage -lcriterion
 
-tests_run:	unit_tests/unit_tests
+tests_run:	unit_tests
 			./unit_tests/unit_tests
 
 .PHONY: all clean fclean re tests_run
