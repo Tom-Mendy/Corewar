@@ -7,7 +7,17 @@
 
 #include "spliter.h"
 
-int my_count_nb_char_in_str(char *str, char spe_char);
+static int my_count_nb_char_in_str_spliter(char *str, char spe_char)
+{
+    if (str == NULL)
+        return -1;
+    int nb_word = 1;
+    for (int k = 0; str[k + 1] != '\0'; k += 1) {
+        if (str[k] == spe_char && str[k + 1] != spe_char)
+            nb_word += 1;
+    }
+    return nb_word;
+}
 
 static int replace_delimiter(char *str, int const i,
 char const *const delimiter)
@@ -33,7 +43,7 @@ char **spliter(char *str, char const *const delimiter)
     }
     if (change_begin_str(&str, delimiter[0]) == 84)
         return NULL;
-    int num_words = my_count_nb_char_in_str(str, delimiter[0]);
+    int num_words = my_count_nb_char_in_str_spliter(str, delimiter[0]);
     if (num_words == -1)
         return NULL;
     char **word_array = malloc(sizeof(char *) * (num_words + 1));

@@ -8,7 +8,9 @@
 SRC			=	display_help.c	\
 				asm.c			\
 				generate_output_filename.c\
-				error_handling.c
+				error_handling.c\
+				find_name_comment.c\
+				big_endian_number.c\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

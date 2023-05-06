@@ -41,4 +41,5 @@
     char *my_load_file_in_memory(const char *filename);
     int my_count_nb_char_in_str(char *str, char spe_char);
     char **my_load_file_in_array(const char *filename);
+    char *generate_malloc_str_from_str(char const *const str);
 #endif /* MY_STR_H_ */

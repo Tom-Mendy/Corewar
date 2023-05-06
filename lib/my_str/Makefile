@@ -40,6 +40,7 @@ SRC     =	my_count_nb_char_in_str.c					\
 			spliter/str_only_contain_str_delimiter.c	\
 			spliter/spliter.c							\
 			my_swap.c									\
+			generate_malloc_str_from_str.c				\
 
 DIR_SRC	=		$(addprefix src/, $(SRC))
 
