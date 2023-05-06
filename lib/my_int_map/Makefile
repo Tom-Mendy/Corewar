@@ -31,6 +31,7 @@ OBJ_TESTS	=	$(DIR_TESTS:.c=.o)
 
 CPPFLAGS	=	-I include\
 				-I ../my_int/include\
+				-I ../my_str/include\
 				-I ../../include\
 				-Wextra\
 				-Wall\
