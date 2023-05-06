@@ -3,6 +3,7 @@
 *~
 *.log
 
+*.cor
 *.s
 
 *.gitignore
