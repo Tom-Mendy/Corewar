@@ -14,7 +14,8 @@ static int find_name(char *actual_line, int const j, char **name)
 {
     if (actual_line == NULL || name == NULL)
         return KO;
-    if (my_str_n_cmp(&(actual_line[j]), NAME_CMD_STRING, 5) == 0){
+    if (my_str_n_cmp(&(actual_line[j]), NAME_CMD_STRING,
+    my_str_len(NAME_CMD_STRING)) == 0){
         if (*name != NULL)
             return KO;
         char **azerty = spliter(actual_line, "\"");
@@ -35,7 +36,8 @@ char **name)
         return KO;
     if (*name == NULL)
         return 1;
-    if (my_str_n_cmp(&(actual_line[j]), COMMENT_CMD_STRING, 8) == 0){
+    if (my_str_n_cmp(&(actual_line[j]), COMMENT_CMD_STRING,
+    my_str_len(COMMENT_CMD_STRING)) == 0){
         if (*comment != NULL)
             return KO;
         char **azerty = spliter(actual_line, "\"");
@@ -58,7 +60,7 @@ int find_name_comment(char *actual_line, char **name, char **comment)
             return 0;
         if (find_name(actual_line, j, name) == OK)
             return OK;
-        if (find_comment(actual_line, j, comment) == OK)
+        if (find_comment(actual_line, j, comment, name) == OK)
             return OK;
     }
     return OK;

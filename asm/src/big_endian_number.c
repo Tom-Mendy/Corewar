@@ -37,5 +37,6 @@ int big_endian_number(int nb)
     for (int i = 0; hexa_nb[i] != -1; i += 1) {
         result += (hexa_nb[i] * my_compute_power_rec(16, 7 - i));
     }
+    free(hexa_nb);
     return result;
 }

@@ -24,6 +24,7 @@ char *generate_output_filename(char *filename)
     if (output_filename == NULL)
         return NULL;
     my_str_n_cpy(output_filename, filename, nb_char_before_point);
+    output_filename[nb_char_before_point] = '\0';
     my_str_cat(output_filename, ".cor");
     return output_filename;
 }

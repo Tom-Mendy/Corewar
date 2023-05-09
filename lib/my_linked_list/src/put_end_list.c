@@ -10,10 +10,9 @@
 int put_end_list(elt_t **list, list_type_t value)
 {
     elt_t *node = *list;
+
     if (node != NULL) {
-        while (node->next != NULL) {
-            node = node->next;
-        }
+        for (;node->next != NULL; node = node->next);
         node->next = malloc(sizeof(elt_t));
         if (node->next == NULL)
             return 84;

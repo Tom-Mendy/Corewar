@@ -42,12 +42,15 @@ int init_header_file(header_t *header_file, char *filename)
         if (find_name_comment(file_in_array[i], &name, &comment) == KO)
             return KO;
     }
+    my_free_char_map(file_in_array);
     if (header_file == NULL || name == NULL || comment == NULL)
         return KO;
     header_file->magic = big_endian_number(COREWAR_EXEC_MAGIC);
     header_file->prog_size = big_endian_number(22);
     if (put_name_and_comment_in_struct(header_file, name, comment) == KO)
         return KO;
+    free(name);
+    free(comment);
     return OK;
 }
 
@@ -57,7 +60,7 @@ int write_to_file(char *output_filename, header_t *header_file)
 
     if (output_fd == -1)
         return KO;
-    write(output_fd, header_file, sizeof(header_t));
+    write(output_fd, header_file, sizeof(header_t) - 1);
     close(output_fd);
     return OK;
 }
@@ -66,6 +69,7 @@ int asm_function(char *filename)
 {
     char *output_filename = generate_output_filename(filename);
     header_t *header_file = NULL;
+    elt_t *toto = NULL;
 
     if (output_filename == NULL)
         return 84;
@@ -76,6 +80,9 @@ int asm_function(char *filename)
         return KO;
     if (write_to_file(output_filename, header_file) == KO)
         return KO;
+    put_end_list(&toto, 1);
+    delete_first_element_list(&toto);
+    free(toto);
     free(output_filename);
     free(header_file);
     return OK;
