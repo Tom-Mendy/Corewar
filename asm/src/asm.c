@@ -56,8 +56,11 @@ int init_header_file(header_t *header_file, char *filename)
 
 int write_to_file(char *output_filename, header_t *header_file)
 {
-    int output_fd = open(output_filename, O_CREAT | O_WRONLY, S_IRWXU);
+    int output_fd = 1;
 
+    if (output_filename == NULL || header_file == NULL)
+        return KO;
+    output_fd = open(output_filename, O_CREAT | O_WRONLY, S_IRWXU);
     if (output_fd == -1)
         return KO;
     write(output_fd, header_file, sizeof(header_t) - 1);

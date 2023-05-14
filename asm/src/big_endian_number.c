@@ -14,6 +14,9 @@ static int *nb_to_hexa_tab(unsigned int nbr)
 {
     unsigned int save_nbr = nbr;
     int *result = malloc(sizeof(int) * 9);
+
+    if (result == NULL)
+        return NULL;
     for (int i = 0; i < 9; i += 1){
         result[i] = 0;
     }
@@ -29,6 +32,9 @@ int big_endian_number(int nb)
 {
     int result = 0;
     int *hexa_nb = nb_to_hexa_tab(nb);
+
+    if (hexa_nb == NULL)
+        return 0;
     for (int i = 0; hexa_nb[i] != -1; i += 2) {
         int tmp = hexa_nb[i];
         hexa_nb[i] = hexa_nb[i + 1];
