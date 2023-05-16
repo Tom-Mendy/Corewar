@@ -6,6 +6,7 @@
 ##
 
 SRC			=	display_help.c\
+				parcing.c\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
