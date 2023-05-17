@@ -5,8 +5,19 @@
 ## Makefile
 ##
 
+<<<<<<< HEAD
 SRC			=	display_help.c\
 				parcing.c\
+=======
+SRC			=	linked_list/add_node.c	\
+				linked_list/create_node.c	\
+				linked_list/free_list.c	\
+				function/display_help.c	\
+				function/init_champion_list.c	\
+				function/my_str_to_int.c	\
+				function/free_champion.c	\
+				function/vm.c
+>>>>>>> 0becb5a ([UPT] parsing)
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
