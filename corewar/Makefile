@@ -5,7 +5,14 @@
 ## Makefile
 ##
 
-SRC			=	display_help.c\
+SRC			=	linked_list/add_node.c	\
+				linked_list/create_node.c	\
+				linked_list/free_list.c	\
+				function/display_help.c	\
+				function/init_champion_list.c	\
+				function/my_str_to_int.c	\
+				function/free_champion.c	\
+				function/vm.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
