@@ -13,7 +13,6 @@
     #include "my_vm.h"
 
     int display_help(void);
-    int parcing_argv(int argc, char *argv[]);
     int start_vm(char const *argv[]);
     my_vm_t *init_vm(char const *argv[]);
     int my_str_to_int(char const *str);
