@@ -88,7 +88,6 @@ static champion_list_t *init_champion_list(char const *argv[])
 my_vm_t *init_vm(char const *argv[])
 {
     my_vm_t *my_vm = malloc(sizeof(my_vm_t));
-
     if (argv == NULL)
         return NULL;
     if (my_str_cmp(argv[1], "-dump") != 0) {
@@ -105,6 +104,7 @@ my_vm_t *init_vm(char const *argv[])
     my_vm->champion_list = init_champion_list(argv);
     if (my_vm == NULL)
         return NULL;
-    print_champion_list(my_vm->champion_list);
+    if (check_champion_vm(my_vm->champion_list) == NULL)
+        return NULL;
     return my_vm;
 }
