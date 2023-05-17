@@ -12,31 +12,22 @@
 #include "corewar.h"
 #include "my_str.h"
 
-void print_champion_list(champion_list_t *list)
-{
-    champion_list_t *list_tmp = list;
-    while (list_tmp != NULL) {
-        printf("prog_name: %s\nprog_num: %d\nprog_address: %d\n prog_script: %s\n", list_tmp->champion->name, list_tmp->champion->prog_number, list_tmp->champion->load_address, list_tmp->champion->champion_script);
-        list_tmp = list_tmp->next;
-    }
-}
-
 static champion_list_t *get_champion_data(champion_t *champion,
 champion_list_t *champion_list, char const *argv[], int *i)
 {
     if (argv[(*i)] == NULL) {
-        // free_list();
+        free_champion_list(champion_list);
         return NULL;
     }
     champion->name = malloc(sizeof(char) * (my_str_len(argv[(*i)]) + 1));
     if (champion->name == NULL) {
-        // free_list();
+        free_champion_list(champion_list);
         return NULL;
     }
     my_str_cpy(champion->name, argv[(*i)]);
     champion->champion_script = my_load_file_in_memory(argv[(*i)]);
     if (champion->champion_script == NULL) {
-        // free_list();
+        free_champion_list(champion_list);
         return NULL;
     }
     (*i)++;
@@ -46,9 +37,8 @@ champion_list_t *champion_list, char const *argv[], int *i)
     return champion_list;
 }
 
-static champion_t *malloc_champion()
+static champion_t *malloc_champion(void)
 {
- 
     champion_t *champion = malloc(sizeof(champion_t));
     champion->champion_script = NULL;
     champion->name = NULL;
@@ -64,7 +54,7 @@ char const *argv[], int *i)
     if (my_str_cmp(argv[(*i)], "-n") == 0) {
         (*i)++;
         if (argv[(*i)] == NULL || my_str_is_num(argv[(*i)]) == 0) {
-            // free_list();
+            free_champion_list(champion_list);
             return NULL;
         }
         champion->prog_number = my_str_to_int(argv[(*i)]);
@@ -73,7 +63,7 @@ char const *argv[], int *i)
     if (argv[(*i)] != NULL && my_str_cmp(argv[(*i)], "-a") == 0) {
         (*i)++;
         if (argv[(*i)] == NULL || my_str_is_num(argv[(*i)]) == 0) {
-            // free_list();
+            free_champion_list(champion_list);
             return NULL;
         }
         champion->load_address = my_str_to_int(argv[(*i)]);

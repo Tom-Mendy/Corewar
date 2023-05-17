@@ -8,7 +8,8 @@
 #include <unistd.h>
 #include "my_champion_list.h"
 
-champion_list_t *add_champion_in_list(champion_list_t *list, champion_t *champion)
+champion_list_t *add_champion_in_list(champion_list_t *list,
+                                        champion_t *champion)
 {
     champion_list_t *node = create_champion(champion);
     champion_list_t *list_tmp = list;

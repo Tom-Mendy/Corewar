@@ -8,7 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-static void free_vm(my_vm_t *my_vm) {
+void free_vm(my_vm_t *my_vm)
+{
     free_champion_list(my_vm->champion_list);
     free(my_vm);
 }
