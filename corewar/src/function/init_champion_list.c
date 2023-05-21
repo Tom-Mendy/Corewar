@@ -104,7 +104,7 @@ my_vm_t *init_vm(char const *argv[])
     my_vm->champion_list = init_champion_list(argv);
     if (my_vm == NULL)
         return NULL;
-    if (check_champion_vm(my_vm->champion_list) == NULL)
+    if (check_champion_vm(my_vm->champion_list) == KO)
         return NULL;
     return my_vm;
 }

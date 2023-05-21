@@ -11,6 +11,10 @@ SRC			=	display_help.c	\
 				error_handling.c\
 				find_name_comment.c\
 				big_endian_number.c\
+				clear_commente_in_file.c\
+				free_end.c\
+				get_header_information.c\
+				my_load_clear_file_in_array.c\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
@@ -46,7 +50,7 @@ CFLAGS		=	-Wall -Wextra -ggdb3
 NAME	= asm
 
 $(NAME):	$(OBJ)
-	gcc -o $(NAME) $(OBJ) $(LDLIBS) $(CPPFLAGS) $(CFLAGS)
+	gcc -o $(NAME) $(OBJ) $(LDLIBS) $(CFLAGS)
 
 all: $(NAME)
 
@@ -61,8 +65,8 @@ re:		fclean all
 
 unit_tests: re
 	mkdir unit_tests
-	gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) $(CPPFLAGS)\
-	$(LDLIBS) --coverage -lcriterion
+	gcc -o unit_tests/unit_tests $(DIR_SRC) $(DIR_TESTS) $(LDLIBS)\
+	--coverage -lcriterion
 
 tests_run:	unit_tests
 	./unit_tests/unit_tests
