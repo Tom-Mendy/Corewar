@@ -31,6 +31,7 @@ champion_list_t *champion_list, char const *argv[], int *i)
         return NULL;
     }
     (*i)++;
+    // checker le champion avec list si c bon tu le add sinon tu free et tu return null, att quand tu ne compare pas si c'est égal à -1
     champion_list = add_champion_in_list(champion_list, champion);
     if (champion_list == NULL)
         return NULL;
