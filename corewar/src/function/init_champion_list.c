@@ -31,11 +31,7 @@ champion_list_t *champion_list, char const *argv[], int *i)
         return NULL;
     }
     (*i)++;
-    // checker le champion avec list si c bon tu le add sinon tu free et tu return null, att quand tu ne compare pas si c'est égal à -1
-    champion_list = add_champion_in_list(champion_list, champion);
-    if (champion_list == NULL)
-        return NULL;
-    return champion_list;
+    return check_and_add_champion_in_list(champion_list, champion);
 }
 
 static champion_t *malloc_champion(void)
@@ -104,8 +100,6 @@ my_vm_t *init_vm(char const *argv[])
     my_vm->nbr_cycle = my_str_to_int(argv[2]);
     my_vm->champion_list = init_champion_list(argv);
     if (my_vm == NULL)
-        return NULL;
-    if (check_champion_vm(my_vm->champion_list) == KO)
         return NULL;
     return my_vm;
 }
