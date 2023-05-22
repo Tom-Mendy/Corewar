@@ -17,7 +17,7 @@
     my_vm_t *init_vm(char const *argv[]);
     int my_str_to_int(char const *str);
     void free_champion(champion_t *champion);
-    champion_list_t *check_and_add_champion_in_list(champion_list_t *champion_list,
-    champion_t *champion);
+    champion_list_t *check_and_add_champion_in_list
+    (champion_list_t *champion_list, champion_t *champion);
 
 #endif /* !COREWAR_H_ */
