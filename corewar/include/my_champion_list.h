@@ -26,6 +26,5 @@
     champion_list_t *add_champion_in_list(champion_list_t *list,
     champion_t *champion);
     void free_champion_list(champion_list_t *list);
-    void print_champion_list(champion_list_t *list);
 
 #endif /* !MY_CHAMPION_LIST_H_ */

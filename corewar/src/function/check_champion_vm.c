@@ -13,13 +13,11 @@ int check_champion_list_vm(champion_t *champion_in_list, champion_t *champion)
         if (champion_in_list->prog_number == champion->prog_number) {
             return KO;
         }
-        return OK;
     }
     if (champion->load_address != -1) {
         if (champion_in_list->load_address == champion->load_address) {
             return KO;
         }
-        return OK;
     }
     return OK;
 }
@@ -31,10 +29,10 @@ int check_champion_vm(champion_list_t *champion_list, champion_t *champion)
     if (champion_list == NULL)
         return OK;
     while (list_tmp->next != NULL) {
-        check_champion_list_vm(list_tmp->champion, champion);
+        if (check_champion_list_vm(list_tmp->champion, champion) == KO)
+            return KO;
         list_tmp = list_tmp->next;
     }
-    print_champion_list(list_tmp);
     return OK;
 }
 

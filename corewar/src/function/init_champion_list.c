@@ -85,7 +85,7 @@ static champion_list_t *init_champion_list(char const *argv[])
 my_vm_t *init_vm(char const *argv[])
 {
     my_vm_t *my_vm = malloc(sizeof(my_vm_t));
-    if (argv == NULL)
+    if (argv == NULL || my_vm == NULL)
         return NULL;
     if (my_str_cmp(argv[1], "-dump") != 0) {
         if (write(2, "bad argument, try ./corewar -h\n", 32) == -1)
@@ -99,7 +99,9 @@ my_vm_t *init_vm(char const *argv[])
     }
     my_vm->nbr_cycle = my_str_to_int(argv[2]);
     my_vm->champion_list = init_champion_list(argv);
-    if (my_vm == NULL)
+    if (my_vm->champion_list == NULL) {
+        free(my_vm);
         return NULL;
+    }
     return my_vm;
 }
