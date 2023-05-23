@@ -10,9 +10,11 @@
     #include <stdlib.h>
     #include <stdbool.h>
     #include "my_str.h"
+    #include "op.h"
     typedef struct champion_s {
         char *name;
-        char *champion_script;
+        header_t header;
+        char *prog_script;
         int prog_number;
         int load_address;
     } champion_t;
@@ -26,6 +28,5 @@
     champion_list_t *add_champion_in_list(champion_list_t *list,
     champion_t *champion);
     void free_champion_list(champion_list_t *list);
-    void print_champion_list(champion_list_t *list);
 
 #endif /* !MY_CHAMPION_LIST_H_ */

@@ -7,23 +7,44 @@
 
 #include "corewar.h"
 
-int check_champion_vm(champion_list_t *list)
+int check_champion_list_vm(champion_t *champion_in_list, champion_t *champion)
 {
-    champion_list_t *list_tmp = list;
+    if (champion->prog_number != -1) {
+        if (champion_in_list->prog_number == champion->prog_number) {
+            return KO;
+        }
+    }
+    if (champion->load_address != -1) {
+        if (champion_in_list->load_address == champion->load_address) {
+            return KO;
+        }
+    }
+    return OK;
+}
 
-    if (list == NULL)
-        return KO;
+int check_champion_vm(champion_list_t *champion_list, champion_t *champion)
+{
+    champion_list_t *list_tmp = champion_list;
+
+    if (champion_list == NULL)
+        return OK;
     while (list_tmp->next != NULL) {
-        if (list_tmp->champion->load_address ==
-            list_tmp->next->champion->load_address) {
+        if (check_champion_list_vm(list_tmp->champion, champion) == KO)
             return KO;
-        }
-        if (list_tmp->champion->prog_number ==
-            list_tmp->next->champion->prog_number) {
-            return KO;
-        }
         list_tmp = list_tmp->next;
     }
-    print_champion_list(list_tmp);
     return OK;
+}
+
+champion_list_t *check_and_add_champion_in_list(champion_list_t *champion_list,
+    champion_t *champion)
+{
+    if (check_champion_vm(champion_list, champion) == KO) {
+        free_champion_list(champion_list);
+        return NULL;
+    }
+    champion_list = add_champion_in_list(champion_list, champion);
+    if (champion_list == NULL)
+        return NULL;
+    return champion_list;
 }

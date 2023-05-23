@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** Corewar
 ** File description:
-** asm
+** vm
 */
 
 #ifndef COREWAR_H_
@@ -17,6 +17,9 @@
     my_vm_t *init_vm(char const *argv[]);
     int my_str_to_int(char const *str);
     void free_champion(champion_t *champion);
-    int check_champion_vm(champion_list_t *list);
+    champion_list_t *check_and_add_champion_in_list
+    (champion_list_t *champion_list, champion_t *champion);
+    int load_and_check_header_in_memory(champion_t *champion,
+    char const *filename);
 
 #endif /* !COREWAR_H_ */

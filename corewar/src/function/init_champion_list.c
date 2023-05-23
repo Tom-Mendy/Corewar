@@ -7,6 +7,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include "my_champion_list.h"
 #include "corewar.h"
@@ -25,22 +26,19 @@ champion_list_t *champion_list, char const *argv[], int *i)
         return NULL;
     }
     my_str_cpy(champion->name, argv[(*i)]);
-    champion->champion_script = my_load_file_in_memory(argv[(*i)]);
-    if (champion->champion_script == NULL) {
+    if (load_and_check_header_in_memory(champion, argv[(*i)]) == KO) {
         free_champion_list(champion_list);
         return NULL;
     }
+    write(1, &(champion->header), sizeof(header_t));
     (*i)++;
-    champion_list = add_champion_in_list(champion_list, champion);
-    if (champion_list == NULL)
-        return NULL;
-    return champion_list;
+    return check_and_add_champion_in_list(champion_list, champion);
 }
 
 static champion_t *malloc_champion(void)
 {
     champion_t *champion = malloc(sizeof(champion_t));
-    champion->champion_script = NULL;
+    champion->prog_script = NULL;
     champion->name = NULL;
     champion->load_address = -1;
     champion->prog_number = -1;
@@ -88,7 +86,7 @@ static champion_list_t *init_champion_list(char const *argv[])
 my_vm_t *init_vm(char const *argv[])
 {
     my_vm_t *my_vm = malloc(sizeof(my_vm_t));
-    if (argv == NULL)
+    if (argv == NULL || my_vm == NULL)
         return NULL;
     if (my_str_cmp(argv[1], "-dump") != 0) {
         if (write(2, "bad argument, try ./corewar -h\n", 32) == -1)
@@ -102,9 +100,9 @@ my_vm_t *init_vm(char const *argv[])
     }
     my_vm->nbr_cycle = my_str_to_int(argv[2]);
     my_vm->champion_list = init_champion_list(argv);
-    if (my_vm == NULL)
+    if (my_vm->champion_list == NULL) {
+        free(my_vm);
         return NULL;
-    if (check_champion_vm(my_vm->champion_list) == KO)
-        return NULL;
+    }
     return my_vm;
 }
