@@ -38,6 +38,6 @@
     int is_register(char *str);
     int is_direct(char *str);
     int write_to_file(asm_t *asm_n);
-    int get_len_instruction(char **split_line, int j, asm_t *asm_n);
-    int get_len_instruction_sub(char **split_line, asm_t *asm_n);
+    int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n);
+    int fill_int_array_with_cmd_sub(char **split_line, asm_t *asm_n);
 #endif /* !ASM_H_ */

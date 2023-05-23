@@ -22,8 +22,8 @@ SRC			=	display_help.c	\
 				is_register.c\
 				write_to_file.c\
 				is_direct.c\
-				get_len_instruction.c\
-				get_len_instruction_sub.c\
+				fill_int_array_with_cmd.c\
+				fill_int_array_with_cmd_sub.c\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

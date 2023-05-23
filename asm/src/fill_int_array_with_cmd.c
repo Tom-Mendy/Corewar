@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** Corewar
 ** File description:
-** get_len_instruction
+** fill_int_array_with_cmd
 */
 
 #include "my_project.h"
@@ -47,7 +47,7 @@ int zjump(asm_t *asm_n)
     return 3;
 }
 
-int get_len_instruction(char **split_line, int j, asm_t *asm_n)
+int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n)
 {
     if (!asm_n || !split_line)
         return -1;
@@ -57,5 +57,5 @@ int get_len_instruction(char **split_line, int j, asm_t *asm_n)
         return ld_function(asm_n, split_line);
     if (op_tab[j].code == 9)
         return zjump(asm_n);
-    return get_len_instruction_sub(split_line, asm_n);
+    return fill_int_array_with_cmd_sub(split_line, asm_n);
 }

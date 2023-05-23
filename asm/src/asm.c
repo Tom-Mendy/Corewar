@@ -14,7 +14,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 {
     for (int j = 0; op_tab[j].mnemonique != NULL; j += 1) {
         if (my_str_cmp(op_tab[j].mnemonique, split_line[h]) == OK) {
-            len_instruction = get_len_instruction(split_line, j, asm_n);
+            fill_int_array_with_cmd(split_line, j, asm_n);
             asm_n->index_int_tab += 1;
             return OK;
         }

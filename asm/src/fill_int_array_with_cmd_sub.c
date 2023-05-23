@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** Corewar
 ** File description:
-** get_len_instruction_sub
+** fill_int_array_with_cmd_sub
 */
 
 #include "my_project.h"
@@ -26,7 +26,7 @@ asm_t *asm_n)
     return OK;
 }
 
-int get_len_instruction_sub(char **split_line, asm_t *asm_n)
+int fill_int_array_with_cmd_sub(char **split_line, asm_t *asm_n)
 {
     int len_instruction = 2;
     int len = my_char_map_len(split_line);
