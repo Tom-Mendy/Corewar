@@ -35,4 +35,8 @@
     char **simplify_array(char **file_in_array);
     char **my_new_char_array(char **file_in_array);
     int initialise_asm_n(asm_t *asm_n, char *filename);
+    int is_register(char *str);
+    int is_direct(char *str);
+    int write_to_file(char *output_filename, header_t *header_file);
+    int get_len_instruction(char **split_line, int j);
 #endif /* !ASM_H_ */
