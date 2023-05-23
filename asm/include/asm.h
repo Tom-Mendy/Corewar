@@ -37,6 +37,7 @@
     int initialise_asm_n(asm_t *asm_n, char *filename);
     int is_register(char *str);
     int is_direct(char *str);
-    int write_to_file(char *output_filename, header_t *header_file);
+    int write_to_file(asm_t *asm_n);
     int get_len_instruction(char **split_line, int j, asm_t *asm_n);
+    int get_len_instruction_sub(char **split_line, asm_t *asm_n);
 #endif /* !ASM_H_ */

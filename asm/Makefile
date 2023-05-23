@@ -23,6 +23,7 @@ SRC			=	display_help.c	\
 				write_to_file.c\
 				is_direct.c\
 				get_len_instruction.c\
+				get_len_instruction_sub.c\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
