@@ -69,11 +69,13 @@ char const *argv[], int *i)
     return get_champion_data(champion, champion_list, argv, i);
 }
 
-static champion_list_t *init_champion_list(char const *argv[])
+static champion_list_t *init_champion_list(my_vm_t *my_vm, char const *argv[])
 {
-    int i = 3;
+    int i = 1;
     champion_list_t *champion_list = NULL;
 
+    if (my_vm->dump != -1)
+        i = 3;
     while (argv[i] != NULL) {
         champion_list = put_champion_in_list(champion_list, argv, &i);
         if (champion_list == NULL)
@@ -87,18 +89,15 @@ my_vm_t *init_vm(char const *argv[])
     my_vm_t *my_vm = malloc(sizeof(my_vm_t));
     if (argv == NULL || my_vm == NULL)
         return NULL;
-    if (my_str_cmp(argv[1], "-dump") != 0) {
-        if (write(2, "bad argument, try ./corewar -h\n", 32) == -1)
+    my_vm->dump = -1;
+    if (my_str_cmp(argv[1], "-dump") == 0) {
+        if (my_str_is_num(argv[2]) != 1) {
+            write(2, "bad argument, try ./corewar -h\n", 32);
             return NULL;
-        return NULL;
+        }
+        my_vm->dump = my_str_to_int(argv[2]);
     }
-    if (my_str_is_num(argv[2]) != 1) {
-        if (write(2, "bad argument, try ./corewar -h\n", 32) == -1)
-            return NULL;
-        return NULL;
-    }
-    my_vm->nbr_cycle = my_str_to_int(argv[2]);
-    my_vm->champion_list = init_champion_list(argv);
+    my_vm->champion_list = init_champion_list(my_vm, argv);
     if (my_vm->champion_list == NULL) {
         free(my_vm);
         return NULL;

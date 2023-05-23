@@ -11,7 +11,7 @@
     #define MY_VM_H_
 
     typedef struct my_vm_s {
-        int nbr_cycle;
+        int dump;
         int *memory;
         champion_list_t *champion_list;
         champion_list_t **champion;

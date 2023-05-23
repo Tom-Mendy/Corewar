@@ -35,15 +35,15 @@ int display_help(void)
 {
     if (my_put_str("USAGE\n") == -1)
         return KO;
-    if (my_put_str("./corewar [-dump nbr_cycle] [[-n prog_number]") == -1)
+    if (my_put_str("./corewar [-dump dump] [[-n prog_number]") == -1)
         return KO;
     if (my_put_str(" [-a load_address] prog_name] ...\n") == -1)
         return KO;
     if (my_put_str("DESCRIPTION\n") == -1)
         return KO;
-    if (my_put_str("-dump nbr_cycle dumps the memory after the ") == -1)
+    if (my_put_str("-dump dump dumps the memory after the ") == -1)
         return KO;
-    if (my_put_str("nbr_cycle execution (if the round isn't\n") == -1)
+    if (my_put_str("dump execution (if the round isn't\n") == -1)
         return KO;
     if (my_put_str("already over) with the following format: 32") == -1)
         return KO;
