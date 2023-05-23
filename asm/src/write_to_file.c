@@ -19,7 +19,7 @@ int write_to_file(char *output_filename, header_t *header_file)
     output_fd = open(output_filename, O_CREAT | O_WRONLY, S_IRWXU);
     if (output_fd == -1)
         return KO;
-    write(output_fd, header_file, sizeof(header_t) - 1);
+    write(output_fd, header_file, sizeof(header_t));
     close(output_fd);
     return OK;
 }

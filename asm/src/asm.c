@@ -16,9 +16,9 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 
     for (int j = 0; op_tab[j].mnemonique != NULL; j += 1) {
         if (my_str_cmp(op_tab[j].mnemonique, split_line[h]) == OK) {
-            len_instruction = get_len_instruction(split_line, j);
+            len_instruction = get_len_instruction(split_line, j, asm_n);
             asm_n->tab_int[asm_n->index_int_tab] = malloc(sizeof(int) *
-                (len_instruction + 1));
+            (len_instruction + 1));
             asm_n->index_int_tab += 1;
             return OK;
         }
@@ -35,7 +35,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 {
     if (!asm_n || !function_declaration_usage_place || !split_line)
         return KO;
-    for (int h = 0; split_line[h] != NULL; h += 1){
+    for (int h = 0; split_line[h] != NULL; h += 1) {
         if (fill_int_array_ter(asm_n, h, function_declaration_usage_place,
         split_line) == OK)
             return OK;
@@ -69,7 +69,6 @@ int asm_function(char *filename)
         return KO;
     if (asm_n.file_in_array == NULL)
         return KO;
-    my_display_int_map(asm_n.tab_int);
     if (asm_n.output_filename == NULL)
         return KO;
     if (get_header_information(&asm_n.header_file, asm_n.file_in_array) == KO)
