@@ -51,8 +51,7 @@ int *word_index)
         return 0;
     int return_value = 0;
     int str_word_index[2] = { 0, (*word_index) };
-    for (; str[str_word_index[0]] != '\0';
-        str_word_index[0] += 1) {
+    for (; str[str_word_index[0]] != '\0'; str_word_index[0] += 1) {
         return_value = end_str(word_array, str, &(str_word_index[1]),
             str_word_index[0]);
         if (return_value != 1)

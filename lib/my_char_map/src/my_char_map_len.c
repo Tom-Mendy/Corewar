@@ -7,7 +7,7 @@
 
 #include "my_char_map.h"
 
-int my_char_map_len(char const * const * const map)
+int my_char_map_len(char **map)
 {
     int map_len = 0;
 
