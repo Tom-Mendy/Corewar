@@ -12,7 +12,10 @@
 
     typedef struct my_vm_s {
         int nbr_cycle;
+        int *memory;
         champion_list_t *champion_list;
+        champion_list_t **champion;
     } my_vm_t;
+    void free_vm(my_vm_t *my_vm);
 
 #endif /* !MY_VM_H_ */

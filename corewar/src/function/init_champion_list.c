@@ -30,7 +30,6 @@ champion_list_t *champion_list, char const *argv[], int *i)
         free_champion_list(champion_list);
         return NULL;
     }
-    write(1, &(champion->header), sizeof(header_t));
     (*i)++;
     return check_and_add_champion_in_list(champion_list, champion);
 }
@@ -104,5 +103,5 @@ my_vm_t *init_vm(char const *argv[])
         free(my_vm);
         return NULL;
     }
-    return my_vm;
+    return switch_to_tab_champion(my_vm);
 }

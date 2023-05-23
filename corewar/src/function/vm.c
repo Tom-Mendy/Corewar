@@ -11,6 +11,7 @@
 void free_vm(my_vm_t *my_vm)
 {
     free_champion_list(my_vm->champion_list);
+    free(my_vm->memory);
     free(my_vm);
 }
 
