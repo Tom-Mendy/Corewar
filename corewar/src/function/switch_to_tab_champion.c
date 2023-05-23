@@ -10,7 +10,7 @@
 #include "corewar.h"
 #include "my_vm.h"
 
-static int load_champion_in_memory_with_load_adress(champion_list_t *list_tmp,
+static int load_champion_in_memory_with_load_address(champion_list_t *list_tmp,
 my_vm_t *my_vm)
 {
     int index = 0;
@@ -42,7 +42,7 @@ my_vm_t *switch_to_tab_champion(my_vm_t *my_vm)
     for (int i = 0; i < MEM_SIZE; i++)
         my_vm->memory[i] = -1;
     while (list_tmp != NULL) {
-        if (load_champion_in_memory_with_load_adress(list_tmp, my_vm) == KO) {
+        if (load_champion_in_memory_with_load_address(list_tmp, my_vm) == KO) {
             free_vm(my_vm);
             return NULL;
         }
