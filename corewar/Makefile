@@ -13,6 +13,7 @@ SRC			=	linked_list/add_node.c	\
 				function/my_str_to_int.c	\
 				function/free_champion.c	\
 				function/check_champion_vm.c	\
+				function/load_header_in_memory.c	\
 				function/vm.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))

@@ -10,9 +10,11 @@
     #include <stdlib.h>
     #include <stdbool.h>
     #include "my_str.h"
+    #include "op.h"
     typedef struct champion_s {
         char *name;
-        char *champion_script;
+        header_t header;
+        char *prog_script;
         int prog_number;
         int load_address;
     } champion_t;

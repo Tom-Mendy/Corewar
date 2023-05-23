@@ -7,6 +7,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include "my_champion_list.h"
 #include "corewar.h"
@@ -25,11 +26,11 @@ champion_list_t *champion_list, char const *argv[], int *i)
         return NULL;
     }
     my_str_cpy(champion->name, argv[(*i)]);
-    champion->champion_script = my_load_file_in_memory(argv[(*i)]);
-    if (champion->champion_script == NULL) {
+    if (load_and_check_header_in_memory(champion, argv[(*i)]) == KO) {
         free_champion_list(champion_list);
         return NULL;
     }
+    write(1, &(champion->header), sizeof(header_t));
     (*i)++;
     return check_and_add_champion_in_list(champion_list, champion);
 }
@@ -37,7 +38,7 @@ champion_list_t *champion_list, char const *argv[], int *i)
 static champion_t *malloc_champion(void)
 {
     champion_t *champion = malloc(sizeof(champion_t));
-    champion->champion_script = NULL;
+    champion->prog_script = NULL;
     champion->name = NULL;
     champion->load_address = -1;
     champion->prog_number = -1;

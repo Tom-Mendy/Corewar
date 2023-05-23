@@ -10,7 +10,7 @@
 
 void free_champion(champion_t *champion)
 {
-    free(champion->champion_script);
+    free(champion->prog_script);
     free(champion->name);
     free(champion);
 }
