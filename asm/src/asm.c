@@ -40,6 +40,7 @@ int asm_function(char *filename)
     if (write_to_file(output_filename, header_file) == KO)
         return KO;
     put_end_list(&list_of_bites, 1);
+    simplify_array(file_in_array); ////////////////////////////////////
     free_end(list_of_bites, file_in_array, output_filename, header_file);
     return OK;
 }

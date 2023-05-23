@@ -15,6 +15,7 @@ SRC			=	display_help.c	\
 				free_end.c\
 				get_header_information.c\
 				my_load_clear_file_in_array.c\
+				convert.c	\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

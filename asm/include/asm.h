@@ -19,4 +19,5 @@
     char *output_filename, header_t *header_file);
     int get_header_information(header_t **header_file, char **file_in_array);
     char ** my_load_clear_file_in_array(char *filename);
+    char **simplify_array(char **file_in_array);
 #endif /* !ASM_H_ */
