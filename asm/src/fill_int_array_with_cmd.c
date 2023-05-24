@@ -17,7 +17,8 @@ int live(asm_t *asm_n, char **split_line, int h)
         asm_n->tab_int[asm_n->index_int_tab][i] = 0;
     }
     asm_n->tab_int[asm_n->index_int_tab][5] = -1;
-    asm_n->tab_int[asm_n->index_int_tab][4] = my_get_nbr(&(split_line[h + 1][1]));
+    asm_n->tab_int[asm_n->index_int_tab][4] =
+    my_get_nbr(&(split_line[h + 1][1]));
     asm_n->index_int_tab += 1;
     return 5;
 }
@@ -30,7 +31,8 @@ int ld_function(asm_t *asm_n, char **split_line, int h)
         asm_n->tab_int[asm_n->index_int_tab][i] = 0;
     }
     asm_n->tab_int[asm_n->index_int_tab][7] = -1;
-    asm_n->tab_int[asm_n->index_int_tab][4] = my_get_nbr(&(split_line[h + 1][1]));
+    asm_n->tab_int[asm_n->index_int_tab][4] =
+    my_get_nbr(&(split_line[h + 1][1]));
     asm_n->index_int_tab += 1;
     return 7;
 }

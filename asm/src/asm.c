@@ -80,9 +80,7 @@ int asm_function(char *filename)
 
     if (initialise_asm_n(&asm_n, filename) == KO)
         return KO;
-    if (asm_n.file_in_array == NULL)
-        return KO;
-    if (asm_n.output_filename == NULL)
+    if (!asm_n.file_in_array || !asm_n.output_filename)
         return KO;
     if (get_header_information(&asm_n) == KO)
         return KO;
