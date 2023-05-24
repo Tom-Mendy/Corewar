@@ -26,12 +26,14 @@ static int do_if(char **line, int i)
 
 static int check_mn_per_line(char **line)
 {
-    int i = 0;
-    if (my_str_cmp(my_str_str(line[0], ":"), ":") == 0)
-            i = 2;
-    else
-        i = 1;
-    for ( ; line[i] != NULL; i++) {
+    int i = 1;
+    char label_str[2] = {LABEL_CHAR, 0};
+
+    if (!line)
+        return -1;
+    if (my_str_cmp(my_str_str(line[0], label_str), label_str) == 0)
+        i += 1;
+    for (; line[i] != NULL; i++) {
         if (do_if(line, i) == -1)
             return -1;
     }
@@ -42,7 +44,8 @@ static int check_if_mn(char *str)
 {
     int i = 0, j = 0;
     char **line = spliter(str, " ");
-    if (my_str_cmp(my_str_str(line[0], ":"), ":") == 0)
+    char label_str[2] = {LABEL_CHAR, 0};
+    if (my_str_cmp(my_str_str(line[0], label_str), label_str) == 0)
         j = 1;
     for (i = 0; i < 17; i++) {
         if (my_str_n_cmp(line[j], op_tab[i].mnemonique,
