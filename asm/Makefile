@@ -15,8 +15,6 @@ SRC			=	display_help.c	\
 				free_end.c\
 				get_header_information.c\
 				my_load_clear_file_in_array.c\
-				convert.c\
-				my_new_char_array.c\
 				initialise_asm_n.c\
 				../../op.c\
 				is_register.c\

@@ -31,8 +31,6 @@
     void free_end(asm_t *asm_n);
     int get_header_information(asm_t *asm_n);
     char ** my_load_clear_file_in_array(char *filename);
-    char **simplify_array(char **file_in_array);
-    char **my_new_char_array(char **file_in_array);
     int initialise_asm_n(asm_t *asm_n, char *filename);
     int is_register(char *str);
     int is_direct(char *str);
