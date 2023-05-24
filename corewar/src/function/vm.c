@@ -35,6 +35,35 @@ void free_vm(my_vm_t *my_vm)
 //         printf("\n");
 //     }
 // }
+
+int display_memory(int *memory)
+{
+    static const char hex_tab[] = "0123456789ABCDEF";
+    int line_counter = 0;
+
+    if (memory == NULL) {
+        my_put_str("ERROR (dump_memory) : memory == NULL.\n");
+        return KO;
+    }
+    for (int i = 0; i < MEM_SIZE; i++) {
+        if (hex_tab[((unsigned char)memory[i]) / 16] == 70) {
+            my_put_char(hex_tab[0]);
+            my_put_char(hex_tab[0]);
+        } else {
+            my_put_char(hex_tab[((unsigned char)memory[i]) / 16]);
+            my_put_char(hex_tab[((unsigned char)memory[i]) % 16]);
+        }
+        line_counter++;
+        if (line_counter % 32 == 0) {
+            line_counter = 0;
+            my_put_char('\n');
+        } else {
+            my_put_char(' ');
+        }
+    }
+    return OK;
+}
+
 int start_vm(char const *argv[])
 {
     my_vm_t *my_vm = NULL;
@@ -48,6 +77,7 @@ int start_vm(char const *argv[])
         free_vm(my_vm);
         return KO;
     }
+    display_memory(my_vm->memory);
     free_vm(my_vm);
     return OK;
 }
