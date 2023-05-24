@@ -20,6 +20,7 @@ tmp
 
 perso*
 Test.c
+*.txt
 
 *intermediate
 

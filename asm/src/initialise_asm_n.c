@@ -20,5 +20,7 @@ int initialise_asm_n(asm_t *asm_n, char *filename)
     if (asm_n->output_filename == NULL)
         return KO;
     asm_n->tab_int = NULL;
+    if (asm_n->file_in_array == NULL)
+        return KO;
     return OK;
 }

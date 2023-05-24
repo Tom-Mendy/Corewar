@@ -22,5 +22,9 @@ char ** my_load_clear_file_in_array(char *filename)
         my_free_char_map(file_in_array);
         return NULL;
     }
+
+    if (check_info(file_in_array) == -1)
+        return NULL;
+
     return file_in_array;
 }

@@ -17,7 +17,8 @@ int check_input(char *av[])
         return KO;
     }
     if (fd == -1) {
-        write(2, "Error: File does not exist.\n", 29);
+        if (write(2, "Error: File does not exist.\n", 29) == -1)
+            return KO;
         return KO;
     }
     close(fd);

@@ -40,4 +40,6 @@
     int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n, int h);
     int fill_int_array_with_cmd_sub(int code_instruction, char **split_line,
     asm_t *asm_n);
+    int check_info(char **arr);
+
 #endif /* !ASM_H_ */
