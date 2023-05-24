@@ -40,20 +40,28 @@ static int check_mn_per_line(char **line)
     return 0;
 }
 
+int get_len_op_tab(void)
+{
+    int i = 0;
+    for (; op_tab[i].mnemonique != 0; i += 1);
+    return i;
+}
+
 static int check_if_mn(char *str)
 {
     int j = 0;
     int return_value = 0;
     char **line = spliter(str, " ");
     char label_str[2] = {LABEL_CHAR, 0};
+    int len_op_tab = get_len_op_tab();
 
     if (my_str_cmp(my_str_str(line[0], label_str), label_str) == 0)
         j = 1;
-    for (int i = 0; i < 17; i++) {
+    for (int i = 0; i < len_op_tab; i++) {
         if (my_str_n_cmp(line[j], op_tab[i].mnemonique,
         my_str_len(op_tab[i].mnemonique)) == 0)
             break;
-        if ((i + 1) == 17) {
+        if ((i + 1) == len_op_tab) {
             write(2, "Error: Line without mnemonic, or LABEL error.\n", 47);
             my_free_char_map(line);
             return -1;
