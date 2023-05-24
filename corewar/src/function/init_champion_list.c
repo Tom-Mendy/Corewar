@@ -87,6 +87,7 @@ static champion_list_t *init_champion_list(my_vm_t *my_vm, char const *argv[])
 my_vm_t *init_vm(char const *argv[])
 {
     my_vm_t *my_vm = malloc(sizeof(my_vm_t));
+    my_vm->tab_champion = NULL;
     if (argv == NULL || my_vm == NULL)
         return NULL;
     my_vm->dump = -1;

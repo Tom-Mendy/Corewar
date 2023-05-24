@@ -10,6 +10,10 @@
 
 void free_vm(my_vm_t *my_vm)
 {
+    if (my_vm == NULL)
+        return;
+    if (my_vm->tab_champion)
+        free(my_vm->tab_champion);
     free_champion_list(my_vm->champion_list);
     free(my_vm->memory);
     free(my_vm);

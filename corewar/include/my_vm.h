@@ -14,7 +14,7 @@
         int dump;
         int *memory;
         champion_list_t *champion_list;
-        champion_list_t **champion;
+        champion_t **tab_champion;
     } my_vm_t;
     void free_vm(my_vm_t *my_vm);
 

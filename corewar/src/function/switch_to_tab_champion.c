@@ -5,7 +5,7 @@
 ** switch_to_tab_champion
 */
 
-#include<stdlib.h>
+#include <stdlib.h>
 #include "my_champion_list.h"
 #include "corewar.h"
 #include "my_vm.h"
@@ -65,8 +65,8 @@ my_vm_t *my_vm)
     int index = 0;
     if (list_tmp->champion->load_address != -1)
         return OK;
-    if (list_tmp->champion->load_address >= MEM_SIZE)
-        return KO;
+    list_tmp->champion->load_address = list_tmp->champion->load_address %
+    MEM_SIZE;
     list_tmp->champion->load_address = search_load_address_in_memory_available
     (my_vm, list_tmp->champion);
     if (list_tmp->champion->load_address == -1)
@@ -105,5 +105,5 @@ my_vm_t *switch_to_tab_champion(my_vm_t *my_vm)
         }
         list_tmp = list_tmp->next;
     }
-    return my_vm;
+    return create_tab_champion(my_vm);
 }
