@@ -42,12 +42,14 @@ static int check_mn_per_line(char **line)
 
 static int check_if_mn(char *str)
 {
-    int i = 0, j = 0;
+    int j = 0;
+    int return_value = 0;
     char **line = spliter(str, " ");
     char label_str[2] = {LABEL_CHAR, 0};
+
     if (my_str_cmp(my_str_str(line[0], label_str), label_str) == 0)
         j = 1;
-    for (i = 0; i < 17; i++) {
+    for (int i = 0; i < 17; i++) {
         if (my_str_n_cmp(line[j], op_tab[i].mnemonique,
         my_str_len(op_tab[i].mnemonique)) == 0)
             break;
@@ -57,12 +59,9 @@ static int check_if_mn(char *str)
             return -1;
         }
     }
-    if (check_mn_per_line(line) == -1) {
-        my_free_char_map(line);
-        return -1;
-    }
+    return_value = check_mn_per_line(line);
     my_free_char_map(line);
-    return 0;
+    return return_value;
 }
 
 int check_info(char **arr)
