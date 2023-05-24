@@ -10,7 +10,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <string.h>
-#include "my_project.h"
+#include "../../include/my_project.h"
 
 int rev_int(int nb)
 {

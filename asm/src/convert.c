@@ -7,7 +7,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 

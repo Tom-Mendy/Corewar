@@ -7,19 +7,19 @@
 
 #ifndef ASM_H_
     #define ASM_H_
-    #include "op.h"
+    #include "../../include/op.h"
     typedef struct asm_s{
         int **tab_int;
         int index_int_tab;
         header_t *header_file;
         char *output_filename;
         char **file_in_array;
-    }asm_t;
+    } asm_t;
     typedef struct asm_function_s{
         char *name;
         int declaration;
         int call[];
-    }asm_function_t;
+    } asm_function_t;
 
     int asm_function(char *filename);
     int display_help(void);

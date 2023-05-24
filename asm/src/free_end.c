@@ -5,7 +5,7 @@
 ** free_end
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 

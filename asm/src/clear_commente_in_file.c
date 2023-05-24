@@ -5,7 +5,7 @@
 ** clear_commente_in_file
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 

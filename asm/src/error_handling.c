@@ -5,7 +5,7 @@
 ** error_handling
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 
 int check_input(char *av[])

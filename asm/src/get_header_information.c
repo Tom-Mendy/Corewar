@@ -5,7 +5,7 @@
 ** get_header_information
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include <string.h>
 #include "asm.h"
 #include "op.h"

@@ -5,22 +5,22 @@
 ## makefile
 ##
 
-LIBS		=	lib/libmy_str.a\
-				lib/libmy_linked_list.a\
-				lib/libmy_int.a\
-				lib/libmy_char_map.a\
-				lib/libmy_int_map.a\
+LIBS =	lib/libmy_str.a			\
+		lib/libmy_linked_list.a	\
+		lib/libmy_int.a			\
+		lib/libmy_char_map.a	\
+		lib/libmy_int_map.a		\
 
 all: make_libs
-	make -C asm/
-	make -C corewar/
+		make -C asm/
+		make -C corewar/
 
 make_libs:
-	make -C lib/my_int
-	make -C lib/my_str
-	make -C lib/my_linked_list
-	make -C lib/my_char_map
-	make -C lib/my_int_map
+		make -C lib/my_int
+		make -C lib/my_str
+		make -C lib/my_linked_list
+		make -C lib/my_char_map
+		make -C lib/my_int_map
 
 clean:
 		make clean -C asm/

@@ -7,7 +7,7 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 
 void redirect_display_help_stdout(void)

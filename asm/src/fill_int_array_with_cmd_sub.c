@@ -5,7 +5,7 @@
 ** fill_int_array_with_cmd_sub
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 

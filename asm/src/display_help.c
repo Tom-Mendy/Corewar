@@ -5,7 +5,7 @@
 ** display_help
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 
 int display_help(void)

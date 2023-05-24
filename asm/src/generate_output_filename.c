@@ -5,7 +5,7 @@
 ** generate_output_filename
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 

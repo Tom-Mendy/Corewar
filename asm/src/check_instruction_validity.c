@@ -5,7 +5,7 @@
 ** check_instruction_validity
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 

@@ -5,7 +5,7 @@
 ** fill_int_array_with_cmd
 */
 
-#include "my_project.h"
+#include "../../include/my_project.h"
 #include "asm.h"
 #include "op.h"
 
@@ -59,9 +59,8 @@ int zjump(asm_t *asm_n, char **split_line, int h)
     if (asm_n->tab_int[asm_n->index_int_tab] == NULL)
         return KO;
     asm_n->tab_int[asm_n->index_int_tab][0] = 9;
-    for (int i = 1; i < 3; i += 1) {
-        asm_n->tab_int[asm_n->index_int_tab][i] = 0;
-    }
+    asm_n->tab_int[asm_n->index_int_tab][1] = 255;
+    asm_n->tab_int[asm_n->index_int_tab][2] = -12;
     asm_n->tab_int[asm_n->index_int_tab][3] = -1;
     asm_n->index_int_tab += 1;
     return OK;
