@@ -42,4 +42,5 @@
     int h);
     int fill_int_array(asm_t *asm_n, asm_function_t *
     function_declaration_usage_place);
+    int get_len_body(asm_t *asm_n);
 #endif /* !ASM_H_ */

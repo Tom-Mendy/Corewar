@@ -22,7 +22,7 @@ int initialise_asm_n(asm_t *asm_n, char *filename)
     if (!asm_n->output_filename)
         return KO;
     asm_n->tab_int = malloc(sizeof(int *) *
-    (my_char_map_len(asm_n->file_in_array) + 1));
+    (my_char_map_len(asm_n->file_in_array) - 2 + 1));
     if (!asm_n->tab_int)
         return KO;
     return OK;

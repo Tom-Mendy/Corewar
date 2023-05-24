@@ -64,8 +64,6 @@ function_declaration_usage_place)
 
     if (!asm_n || !function_declaration_usage_place)
         return KO;
-    asm_n->tab_int = malloc(sizeof(int *) *
-    (my_char_map_len(asm_n->file_in_array) - 2 + 1));
     if (asm_n->tab_int == NULL)
         return KO;
     asm_n->tab_int[my_char_map_len(asm_n->file_in_array) - 2] = NULL;
