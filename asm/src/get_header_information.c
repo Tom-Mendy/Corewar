@@ -56,7 +56,7 @@ int get_header_information(asm_t *asm_n)
     asm_n->header_file = malloc(sizeof(header_t));
     if (asm_n->header_file == NULL)
         return KO;
-    (*asm_n->header_file)= (header_t){0};
+    (*asm_n->header_file) = (header_t){0};
     if (init_header_file(asm_n->header_file, asm_n->file_in_array) == KO)
         return KO;
     return OK;

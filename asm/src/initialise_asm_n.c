@@ -25,7 +25,5 @@ int initialise_asm_n(asm_t *asm_n, char *filename)
     (my_char_map_len(asm_n->file_in_array) - 2 + 1));
     if (!asm_n->tab_int)
         return KO;
-    asm_n->tab_int = NULL;
-
     return OK;
 }
