@@ -28,11 +28,11 @@ static int check_and_set_prog_number(champion_list_t *champion_list,
 champion_t *champion)
 {
     if (champion->prog_number != -1 && (champion->prog_number < 1 ||
-    champion->prog_number > MAX_ARGS_NUMBER)) {
+    champion->prog_number > 4)) {
         if (write(2, "-n invalid:\nEnter a number between 1 and ", 42) ==
         -1)
             return KO;
-        if (my_put_nbr(MAX_ARGS_NUMBER) == -1)
+        if (my_put_nbr(4) == -1)
             return KO;
         if (write(2, " included\n", 11) == -1)
             return KO;
@@ -40,7 +40,7 @@ champion_t *champion)
     }
     if (champion->prog_number != -1)
         return OK;
-    for (int i = 1; i <= MAX_ARGS_NUMBER; i++) {
+    for (int i = 1; i <= 4; i++) {
         if (prog_number_is_available(i, champion_list) == OK) {
             champion->prog_number = i;
             return OK;
@@ -72,7 +72,7 @@ static my_vm_t *error_message(void)
 {
     if (write(2, "try with less than ", 20) == -1)
         return NULL;
-    if (my_put_nbr(MAX_ARGS_NUMBER + 1) == -1)
+    if (my_put_nbr(4 + 1) == -1)
         return NULL;
     if (write(2, " champion\n", 11) == -1)
         return NULL;
@@ -88,7 +88,7 @@ my_vm_t *create_tab_champion(my_vm_t *my_vm)
             return NULL;
         return NULL;
     }
-    if (len_tab > MAX_ARGS_NUMBER) {
+    if (len_tab > 4) {
         free_vm(my_vm);
         return error_message();
     }
