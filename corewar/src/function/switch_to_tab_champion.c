@@ -37,7 +37,7 @@ my_vm_t *my_vm)
 int count_nb_memory(int *memory, int i)
 {
     int nb_memory = 0;
-    for (int index = i; memory[index] < MEM_SIZE && memory[index] == -1;
+    for (int index = i; index < MEM_SIZE && memory[index] == -1;
     index++) {
         nb_memory++;
     }
