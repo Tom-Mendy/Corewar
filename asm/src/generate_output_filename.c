@@ -24,7 +24,7 @@ char *generate_output_filename(char *filename)
         if (my_str_cmp(extention, ".s") != OK)
             return NULL;
     }
-    char * output_filename = malloc(sizeof(char) *
+    char *output_filename = malloc(sizeof(char) *
     (nb_char_before_point + 4 + 1));
     if (output_filename == NULL)
         return NULL;
