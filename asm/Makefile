@@ -5,27 +5,27 @@
 ## Makefile
 ##
 
-SRC			=	display_help.c	\
-				asm.c			\
-				generate_output_filename.c\
-				error_handling.c\
-				find_name_comment.c\
-				big_endian_number.c\
-				clear_commente_in_file.c\
-				free_end.c\
-				get_header_information.c\
-				my_load_clear_file_in_array.c\
-				initialise_asm_n.c\
-				../../op.c\
-				is_register.c\
-				write_to_file.c\
-				is_direct.c\
-				fill_int_array_with_cmd.c\
-				fill_int_array_with_cmd_sub.c\
-				check_instruction_validity.c\
-				check_mn_per_line.c\
-				fill_int_array.c\
-				get_len_body.c\
+SRC			=	display_help.c						\
+				asm.c								\
+				generate_output_filename.c			\
+				error_handling.c					\
+				find_name_comment.c					\
+				big_endian_number.c					\
+				clear_commente_in_file.c			\
+				free_end.c							\
+				get_header_information.c			\
+				my_load_clear_file_in_array.c		\
+				initialise_asm_n.c					\
+				../../op.c							\
+				is_register.c						\
+				write_to_file.c						\
+				is_direct.c							\
+				fill_int_array_with_cmd.c			\
+				fill_int_array_with_cmd_sub.c		\
+				check_instruction_validity.c		\
+				check_mn_per_line.c					\
+				fill_int_array.c					\
+				get_len_body.c						\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 
