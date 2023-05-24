@@ -24,6 +24,7 @@ SRC			=	display_help.c	\
 				is_direct.c\
 				fill_int_array_with_cmd.c\
 				fill_int_array_with_cmd_sub.c\
+				fill_int_array.c\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

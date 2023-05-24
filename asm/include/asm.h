@@ -38,6 +38,8 @@
     int is_direct(char *str);
     int write_to_file(asm_t *asm_n);
     int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n, int h);
-    int fill_int_array_with_cmd_sub(int code_instruction, char **split_line,
-    asm_t *asm_n);
+    int fill_int_array_with_cmd_sub(char **split_line, int j, asm_t *asm_n,
+    int h);
+    int fill_int_array(asm_t *asm_n, asm_function_t *
+    function_declaration_usage_place);
 #endif /* !ASM_H_ */
