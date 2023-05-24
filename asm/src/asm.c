@@ -14,7 +14,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 {
     for (int j = 0; op_tab[j].mnemonique != NULL; j += 1) {
         if (my_str_cmp(op_tab[j].mnemonique, split_line[h]) == OK) {
-            fill_int_array_with_cmd(split_line, j, asm_n);
+            fill_int_array_with_cmd(split_line, j, asm_n, h);
             return OK;
         }
         if (split_line[h][my_str_len(split_line[h]) - 1] == LABEL_CHAR) {
@@ -84,15 +84,17 @@ int asm_function(char *filename)
         return KO;
     if (asm_n.output_filename == NULL)
         return KO;
-    if (get_header_information(&asm_n.header_file, asm_n.file_in_array) == KO)
+    if (get_header_information(&asm_n) == KO)
         return KO;
-    asm_n.tab_int = my_create_int_map(my_char_map_len(asm_n.file_in_array),
-    0, 0);
+    asm_n.tab_int = malloc(sizeof(int *) *
+    (my_char_map_len(asm_n.file_in_array) + 1));
+    if (asm_n.tab_int == NULL)
+        return KO;
     fill_int_array(&asm_n, &function_declaration_usage_place);
     if (get_len_body(&asm_n) == KO)
         return OK;
     if (write_to_file(&asm_n) == KO)
         return KO;
-    free_end(asm_n.file_in_array, asm_n.output_filename, asm_n.header_file);
+    free_end(asm_n);
     return OK;
 }

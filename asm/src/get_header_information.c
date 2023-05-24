@@ -14,10 +14,10 @@ char *comment)
 {
     if (header_file == NULL || name == NULL || comment == NULL)
         return KO;
-    for (int i = 0; i < PROG_NAME_LENGTH; i += 1){
+    for (int i = 0; i < PROG_NAME_LENGTH + 1; i += 1){
         header_file->prog_name[i] = 0;
     }
-    for (int i = 0; i < COMMENT_LENGTH; i += 1){
+    for (int i = 0; i < COMMENT_LENGTH + 1; i += 1){
         header_file->comment[i] = 0;
     }
     for (int i = 0; name[i] != '\0'; i += 1){
@@ -41,7 +41,6 @@ static int init_header_file(header_t *header_file, char **file_in_array)
     if (header_file == NULL || name == NULL || comment == NULL)
         return KO;
     header_file->magic = big_endian_number(COREWAR_EXEC_MAGIC);
-    header_file->prog_size = big_endian_number(22);
     if (put_name_and_comment_in_struct(header_file, name, comment) == KO)
         return KO;
     free(name);
@@ -49,14 +48,14 @@ static int init_header_file(header_t *header_file, char **file_in_array)
     return OK;
 }
 
-int get_header_information(header_t **header_file, char **file_in_array)
+int get_header_information(asm_t *asm_n)
 {
-    if (!header_file || !file_in_array)
+    if (!asm_n || !asm_n->file_in_array)
         return KO;
-    *header_file = malloc(sizeof(header_t));
-    if (*header_file == NULL)
+    asm_n->header_file = malloc(sizeof(header_t));
+    if (asm_n->header_file == NULL)
         return KO;
-    if (init_header_file(*header_file, file_in_array) == KO)
+    if (init_header_file(asm_n->header_file, asm_n->file_in_array) == KO)
         return KO;
     return OK;
 }

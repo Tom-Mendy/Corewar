@@ -28,9 +28,8 @@
     int find_name_comment(char **file_in_array, char **name, char **comment);
     int big_endian_number(int nb);
     int clear_commente_in_file(char **file);
-    void free_end(char ** file_in_array, char *output_filename,
-    header_t *header_file);
-    int get_header_information(header_t **header_file, char **file_in_array);
+    void free_end(asm_t asm_n);
+    int get_header_information(asm_t *asm_n);
     char ** my_load_clear_file_in_array(char *filename);
     char **simplify_array(char **file_in_array);
     char **my_new_char_array(char **file_in_array);
@@ -38,6 +37,6 @@
     int is_register(char *str);
     int is_direct(char *str);
     int write_to_file(asm_t *asm_n);
-    int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n);
+    int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n, int h);
     int fill_int_array_with_cmd_sub(char **split_line, asm_t *asm_n);
 #endif /* !ASM_H_ */
