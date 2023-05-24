@@ -6,6 +6,7 @@
 */
 
 #include "my_project.h"
+#include <string.h>
 #include "asm.h"
 #include "op.h"
 
@@ -20,10 +21,10 @@ char *comment)
     for (int i = 0; i < COMMENT_LENGTH + 1; i += 1){
         header_file->comment[i] = '\0';
     }
-    for (int i = 0; name[i] != '\0'; i += 1){
+    for (int i = 0; i < PROG_NAME_LENGTH && name[i] != '\0'; i += 1){
         header_file->prog_name[i] = name[i];
     }
-    for (int i = 0; comment[i] != '\0'; i += 1){
+    for (int i = 0; i < COMMENT_LENGTH && comment[i] != '\0'; i += 1){
         header_file->comment[i] = comment[i];
     }
     return 0;
@@ -55,6 +56,7 @@ int get_header_information(asm_t *asm_n)
     asm_n->header_file = malloc(sizeof(header_t));
     if (asm_n->header_file == NULL)
         return KO;
+    (*asm_n->header_file)= (header_t){0};
     if (init_header_file(asm_n->header_file, asm_n->file_in_array) == KO)
         return KO;
     return OK;
