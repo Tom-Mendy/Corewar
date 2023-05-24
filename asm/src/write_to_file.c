@@ -16,7 +16,7 @@ int write_to_file(asm_t *asm_n)
 
     if (asm_n->output_filename == NULL || asm_n->header_file == NULL)
         return KO;
-    output_fd = open(asm_n->output_filename, O_CREAT | O_WRONLY, S_IRWXU);
+    output_fd = open(asm_n->output_filename, O_CREAT | O_WRONLY, 00777);
     if (output_fd == -1)
         return KO;
     write(output_fd, asm_n->header_file, sizeof(header_t));
