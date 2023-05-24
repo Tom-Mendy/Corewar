@@ -12,16 +12,60 @@
 #include "my_project.h"
 #include "my_vm.h"
 
-static void put_champion_list_in_tab_champion(my_vm_t *my_vm)
+static int prog_number_is_available(int prog_number,
+champion_list_t *champion_list)
+{
+    champion_list_t *list_tmp = champion_list;
+    while (list_tmp != NULL) {
+        if (prog_number == list_tmp->champion->prog_number)
+            return 1;
+        list_tmp = list_tmp->next;
+    }
+    return OK;
+}
+
+static int check_and_set_prog_number(champion_list_t *champion_list,
+champion_t *champion)
+{
+    if (champion->prog_number != -1 && (champion->prog_number < 1 ||
+    champion->prog_number > MAX_ARGS_NUMBER)) {
+        if (write(2, "-n invalid:\nEnter a number between 1 and ", 42) ==
+        -1)
+            return KO;
+        if (my_put_nbr(MAX_ARGS_NUMBER) == -1)
+            return KO;
+        if (write(2, " included\n", 11) == -1)
+            return KO;
+        return KO;
+    }
+    if (champion->prog_number != -1)
+        return OK;
+    for (int i = 1; i <= MAX_ARGS_NUMBER; i++) {
+        if (prog_number_is_available(i, champion_list) == OK) {
+            champion->prog_number = i;
+            return OK;
+        }
+    }
+    return OK;
+}
+
+static int swittch_list_to_tab_champion_and_set_and_check_prog_nbr
+(my_vm_t *my_vm)
 {
     int index = 0;
     champion_list_t *list_tmp = my_vm->champion_list;
 
     while (list_tmp != NULL) {
+        if (check_and_set_prog_number(my_vm->champion_list,
+        list_tmp->champion) == KO) {
+            free_vm(my_vm);
+            return KO;
+        }
         my_vm->tab_champion[index] = list_tmp->champion;
         index++;
         list_tmp = list_tmp->next;
     }
+    return OK;
 }
 
 static my_vm_t *error_message(void)
@@ -54,6 +98,7 @@ my_vm_t *create_tab_champion(my_vm_t *my_vm)
         return NULL;
     }
     my_vm->tab_champion[len_tab] = NULL;
-    put_champion_list_in_tab_champion(my_vm);
+    if (swittch_list_to_tab_champion_and_set_and_check_prog_nbr(my_vm) == KO)
+        return NULL;
     return my_vm;
 }
