@@ -11,6 +11,8 @@
 
 int know_instruction(char **split_line, int j, asm_t *asm_n, int h)
 {
+    if (!asm_n || !split_line || h < 0 || j < 0)
+        return KO;
     if (my_str_cmp(op_tab[j].mnemonique, split_line[h]) == OK) {
         if (fill_int_array_with_cmd(split_line, j, asm_n, h) == KO)
             return KO;
@@ -24,7 +26,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 {
     int return_value = 0;
 
-    if (!asm_n || !function_declaration_usage_place || !split_line)
+    if (!asm_n || !function_declaration_usage_place || !split_line || h < 0)
         return KO;
     for (int j = 0; op_tab[j].mnemonique != NULL; j += 1) {
         return_value = know_instruction(split_line, j, asm_n, h);
@@ -64,6 +66,8 @@ function_declaration_usage_place)
         return KO;
     asm_n->tab_int = malloc(sizeof(int *) *
     (my_char_map_len(asm_n->file_in_array) - 2 + 1));
+    if (asm_n->tab_int == NULL)
+        return KO;
     asm_n->tab_int[my_char_map_len(asm_n->file_in_array) - 2] = NULL;
     for (int i = 2; asm_n->file_in_array[i] != NULL; i += 1) {
         char **split_line = spliter(asm_n->file_in_array[i], separator);

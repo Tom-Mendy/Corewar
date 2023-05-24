@@ -31,13 +31,7 @@ int asm_function(char *filename)
 
     if (initialise_asm_n(&asm_n, filename) == KO)
         return KO;
-    if (!asm_n.file_in_array || !asm_n.output_filename)
-        return KO;
     if (get_header_information(&asm_n) == KO)
-        return KO;
-    asm_n.tab_int = malloc(sizeof(int *) *
-    (my_char_map_len(asm_n.file_in_array) + 1));
-    if (asm_n.tab_int == NULL)
         return KO;
     fill_int_array(&asm_n, &function_declaration_usage_place);
     if (get_len_body(&asm_n) == KO)
