@@ -15,10 +15,10 @@ char *comment)
     if (header_file == NULL || name == NULL || comment == NULL)
         return KO;
     for (int i = 0; i < PROG_NAME_LENGTH + 1; i += 1){
-        header_file->prog_name[i] = 0;
+        header_file->prog_name[i] = '\0';
     }
     for (int i = 0; i < COMMENT_LENGTH + 1; i += 1){
-        header_file->comment[i] = 0;
+        header_file->comment[i] = '\0';
     }
     for (int i = 0; name[i] != '\0'; i += 1){
         header_file->prog_name[i] = name[i];

@@ -59,5 +59,5 @@ int fill_int_array_with_cmd(char **split_line, int j, asm_t *asm_n, int h)
         return ld_function(asm_n, split_line, h);
     if (op_tab[j].code == 9)
         return zjump(asm_n);
-    return fill_int_array_with_cmd_sub(split_line, asm_n);
+    return fill_int_array_with_cmd_sub(op_tab[j].code, split_line, asm_n);
 }

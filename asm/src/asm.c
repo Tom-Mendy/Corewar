@@ -93,6 +93,6 @@ int asm_function(char *filename)
         return OK;
     if (write_to_file(&asm_n) == KO)
         return KO;
-    free_end(asm_n);
+    free_end(&asm_n);
     return OK;
 }
