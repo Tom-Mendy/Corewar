@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include "my_champion_list.h"
 #include "corewar.h"
+#include "my_project.h"
 #include "my_vm.h"
 
 static void put_champion_list_in_tab_champion(my_vm_t *my_vm)
@@ -23,6 +24,17 @@ static void put_champion_list_in_tab_champion(my_vm_t *my_vm)
     }
 }
 
+static my_vm_t *error_message(void)
+{
+    if (write(2, "try with less than ", 20) == -1)
+        return NULL;
+    if (my_put_nbr(MAX_ARGS_NUMBER + 1) == -1)
+        return NULL;
+    if (write(2, " champion\n", 11) == -1)
+        return NULL;
+    return NULL;
+}
+
 my_vm_t *create_tab_champion(my_vm_t *my_vm)
 {
     int len_tab = my_list_champion_len(my_vm->champion_list);
@@ -31,6 +43,10 @@ my_vm_t *create_tab_champion(my_vm_t *my_vm)
         if (write(2, "try with more than one champion\n", 33) == -1)
             return NULL;
         return NULL;
+    }
+    if (len_tab > MAX_ARGS_NUMBER) {
+        free_vm(my_vm);
+        return error_message();
     }
     my_vm->tab_champion = malloc(sizeof(champion_t) * (len_tab + 1));
     if (my_vm->tab_champion == NULL) {
