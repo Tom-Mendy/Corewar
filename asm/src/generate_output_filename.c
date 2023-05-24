@@ -19,6 +19,11 @@ int count_nb_char_before_point(char *filename)
 char *generate_output_filename(char *filename)
 {
     int nb_char_before_point = count_nb_char_before_point(filename);
+    if (nb_char_before_point != my_str_len(filename)){
+        char *extention = my_str_str(filename, ".s");
+        if (my_str_cmp(extention, ".s") != OK)
+            return NULL;
+    }
     char * output_filename = malloc(sizeof(char) *
     (nb_char_before_point + 4 + 1));
     if (output_filename == NULL)

@@ -17,6 +17,8 @@ int initialise_asm_n(asm_t *asm_n, char *filename)
     asm_n->header_file = NULL;
     asm_n->index_int_tab = 0;
     asm_n->output_filename = generate_output_filename(filename);
+    if (asm_n->output_filename == NULL)
+        return KO;
     asm_n->tab_int = NULL;
     return OK;
 }
