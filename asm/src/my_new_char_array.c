@@ -13,11 +13,12 @@ static int nb_element_in_map(char **file_in_array)
 {
     int result = 0;
     char **tmp_tab = NULL;
+    char separator[3] = {' ', SEPARATOR_CHAR, 0};
 
     if (!file_in_array)
         return -1;
     for (int i = 2; file_in_array[i] != NULL ; i++) {
-        tmp_tab = spliter(file_in_array[i], " ,");
+        tmp_tab = spliter(file_in_array[i], separator);
         result += my_char_map_len(tmp_tab);
         my_free_char_map(tmp_tab);
     }
@@ -28,11 +29,12 @@ static int fill_result(char **file_in_array, char **result)
 {
     char **tmp_tab = NULL;
     int index_result = 0;
+    char separator[3] = {' ', SEPARATOR_CHAR, 0};
 
     if (!file_in_array || !result)
         return KO;
     for (int i = 2; file_in_array[i] != NULL ; i++) {
-        tmp_tab = spliter(file_in_array[i], " ,");
+        tmp_tab = spliter(file_in_array[i], separator);
         for (int j = 0; tmp_tab[j] != NULL ; j++) {
             result[index_result] = generate_malloc_str_from_str(tmp_tab[j]);
             index_result += 1;

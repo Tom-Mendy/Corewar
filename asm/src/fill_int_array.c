@@ -57,6 +57,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 int fill_int_array(asm_t *asm_n, asm_function_t *
 function_declaration_usage_place)
 {
+    char separator[3] = {' ', SEPARATOR_CHAR, 0};
     asm_n->index_int_tab = 0;
 
     if (!asm_n || !function_declaration_usage_place)
@@ -65,7 +66,7 @@ function_declaration_usage_place)
     (my_char_map_len(asm_n->file_in_array) - 2 + 1));
     asm_n->tab_int[my_char_map_len(asm_n->file_in_array) - 2] = NULL;
     for (int i = 2; asm_n->file_in_array[i] != NULL; i += 1) {
-        char **split_line = spliter(asm_n->file_in_array[i], " ,");
+        char **split_line = spliter(asm_n->file_in_array[i], separator);
         if (fill_int_array_sub(asm_n, function_declaration_usage_place,
         split_line) == KO)
             return KO;
