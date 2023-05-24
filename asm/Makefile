@@ -24,7 +24,8 @@ SRC			=	display_help.c	\
 				is_direct.c\
 				fill_int_array_with_cmd.c\
 				fill_int_array_with_cmd_sub.c\
-				check_instruction_validity.c	\
+				check_instruction_validity.c\
+				check_mn_per_line.c\
 				fill_int_array.c\
 				get_len_body.c\
 

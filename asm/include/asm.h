@@ -44,4 +44,5 @@
     int fill_int_array(asm_t *asm_n, asm_function_t *
     function_declaration_usage_place);
     int get_len_body(asm_t *asm_n);
+    int check_mn_per_line(char **line);
 #endif /* !ASM_H_ */
