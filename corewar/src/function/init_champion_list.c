@@ -41,6 +41,7 @@ static champion_t *malloc_champion(void)
     champion->name = NULL;
     champion->load_address = -1;
     champion->prog_number = -1;
+    champion->tab_register = NULL;
     return champion;
 }
 

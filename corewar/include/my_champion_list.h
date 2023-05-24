@@ -17,6 +17,9 @@
         char *prog_script;
         int prog_number;
         int load_address;
+        int *tab_register;
+        int program_counter;
+        int carry;
     } champion_t;
 
     typedef struct champion_list_s {

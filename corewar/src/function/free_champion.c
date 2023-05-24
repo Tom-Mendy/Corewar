@@ -10,7 +10,12 @@
 
 void free_champion(champion_t *champion)
 {
-    free(champion->prog_script);
-    free(champion->name);
-    free(champion);
+    if (champion->tab_register)
+        free(champion->tab_register);
+    if (champion->prog_script)
+        free(champion->prog_script);
+    if (champion->name)
+        free(champion->name);
+    if (champion)
+        free(champion);
 }

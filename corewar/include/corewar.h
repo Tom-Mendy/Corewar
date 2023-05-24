@@ -23,5 +23,7 @@
     char const *filename);
     my_vm_t *switch_to_tab_champion(my_vm_t *my_vm);
     my_vm_t *create_tab_champion(my_vm_t *my_vm);
+    int init_champion_register_program_counter_and_carry
+    (champion_t ** tab_champion);
 
 #endif /* !COREWAR_H_ */
