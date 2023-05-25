@@ -20,22 +20,9 @@ static void check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
         champion->cycle--;
         return;
     }
-<<<<<<< HEAD
-=======
-    return 1;
-}
-
-static int check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
-{
-    int return_value = 0;
-    if (!my_vm || !champion)
-        return KO;
-    return_value = check_champion_instruction_sub(my_vm, champion);
-    if (return_value != 1)
-        return return_value;
->>>>>>> 45a1b9e0fe650a556a2bda485b98b5d3dc48c4e0
     if (champion->instruction_in_progress == true) {
-
+        launch_instruction(champion, my_vm);
+        champion->instruction_in_progress = false;
     } else {
         read_instruction(champion, my_vm);
         if (champion->cycle > 0)

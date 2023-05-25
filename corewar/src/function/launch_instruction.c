@@ -6,19 +6,23 @@
 */
 
 #include "corewar.h"
+#include "instruction.h"
 #include "op.h"
 
-int (*tab_instruction[])(champion_t *champion, my_vm_t *my_vm) = {&live, &ld,
-&st, &add, &sub, &and, &or, &xor, &zjmp, &ldi, &sti, &fork, &lld, &lldi, &lfork
-, &aff};
+int (*tab_instruction[])(champion_t *champion, my_vm_t *my_vm) =
+{&live_instruction, &ld_instruction, &st_instruction, &add_instruction,
+&sub_instruction, &and_instruction, &or_instruction, &xor_instruction,
+&zjmp_instruction, &ldi_instruction, &sti_instruction, &fork_instruction,
+&lld_instruction, &lldi_instruction, &lfork_instruction, &aff_instruction};
 
-int lauch_instruction(champion_t *champion, my_vm_t *my_vm)
+int launch_instruction(champion_t *champion, my_vm_t *my_vm)
 {
     int instruction_type = my_vm->memory[champion->program_counter];
 
     for (int i = 0; op_tab[i].mnemonique != NULL; i++) {
         if (instruction_type == op_tab[i].code) {
-            return tab_instruction[i - 1];
+            return tab_instruction[i - 1](champion, my_vm);
         }
     }
+    return OK;
 }

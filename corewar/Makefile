@@ -21,6 +21,7 @@ SRC			=	linked_list/add_node.c	\
 				function/display_memory.c	\
 				function/loop_corewar.c	\
 				function/read_instruction.c	\
+				function/launch_instruction.c	\
 				function/vm.c \
 				function/instructions/add.c	\
 				function/instructions/aff.c	\
