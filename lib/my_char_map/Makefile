@@ -48,7 +48,7 @@ fclean: clean
 re: fclean all
 
 unit_tests: re
-	mkdir unit_tests
+	mkdir -p unit_tests
 	gcc -o unit_tests/unit_tests $(DIR_SRC) $(EXT) $(DIR_TESTS) $(CPPFLAGS) \
 	--coverage -lcriterion
 

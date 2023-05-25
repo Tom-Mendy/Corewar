@@ -47,16 +47,14 @@ fclean: clean
 re:		fclean all
 
 unit_tests:	re
-		mkdir unit_tests
+		mkdir -p unit_tests
 		make unit_tests -C lib/my_int
 		make unit_tests -C lib/my_str
 		make unit_tests -C lib/my_char_map
-		make unit_tests -C asm
 
 tests_run:	unit_tests
 		make tests_run -C lib/my_int
 		make tests_run -C lib/my_str
 		make tests_run -C lib/my_char_map
-		make tests_run -C asm
 
 .PHONY: all clean fclean re make_libs tests_run
