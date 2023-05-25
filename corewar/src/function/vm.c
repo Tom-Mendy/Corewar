@@ -19,23 +19,6 @@ void free_vm(my_vm_t *my_vm)
     free(my_vm);
 }
 
-// static void print_vm(my_vm_t *my_vm)
-// {
-//     if (my_vm->tab_champion == NULL)
-//         return;
-//     for (int i = 0; my_vm->tab_champion[i] != NULL; i++) {
-//         printf("champion name: %s\n", my_vm->tab_champion[i]
-// ->header.prog_name);
-//         printf("champion body:\n");
-//         for (int j = my_vm->tab_champion[i]->load_address; j <
-        // my_vm->tab_champion[i]->load_address + my_vm->tab_champion[i]->
-        // header.prog_size; j++) {
-//             printf(" %02x", my_vm->memory[j % MEM_SIZE]);
-//         }
-//         printf("\n");
-//     }
-// }
-
 int start_vm(char const *argv[])
 {
     my_vm_t *my_vm = NULL;
