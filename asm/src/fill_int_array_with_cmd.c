@@ -29,26 +29,6 @@ int live(asm_t *asm_n, char **split_line, int h)
     return OK;
 }
 
-int ld_function(asm_t *asm_n, char **split_line, int h)
-{
-    if (!asm_n || !split_line || h < 0)
-        return KO;
-    if ((my_char_map_len(split_line) - h) != 3)
-        return KO;
-    asm_n->tab_int[asm_n->index_int_tab] = malloc(sizeof(int) * (7 + 1));
-    if (asm_n->tab_int[asm_n->index_int_tab] == NULL)
-        return KO;
-    asm_n->tab_int[asm_n->index_int_tab][0] = 2;
-    for (int i = 1; i < 7; i += 1) {
-        asm_n->tab_int[asm_n->index_int_tab][i] = 0;
-    }
-    asm_n->tab_int[asm_n->index_int_tab][7] = -1;
-    asm_n->tab_int[asm_n->index_int_tab][4] =
-    my_get_nbr(&(split_line[h + 1][1]));
-    asm_n->index_int_tab += 1;
-    return OK;
-}
-
 int zjump(asm_t *asm_n, char **split_line, int h)
 {
     if (!asm_n || !split_line || h < 0)

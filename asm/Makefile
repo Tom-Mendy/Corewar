@@ -28,6 +28,7 @@ SRC			=	display_help.c						\
 				get_len_body.c						\
 				add_len_by_type_of_param.c			\
 				add_value_in_array.c				\
+				ld_function.c						\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

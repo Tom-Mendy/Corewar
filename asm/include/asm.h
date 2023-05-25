@@ -49,4 +49,5 @@
     int check_mn_per_line(char **line);
     int add_len_by_type_of_param(char *str, int *len_instruction);
     int add_value_in_array(char **split_line, asm_t *asm_n, int h);
+    int ld_function(asm_t *asm_n, char **split_line, int h);
 #endif /* !ASM_H_ */
