@@ -39,6 +39,7 @@ SRC			=	linked_list/add_node.c	\
 				function/instructions/sub.c	\
 				function/instructions/xor.c	\
 				function/instructions/zjmp.c	\
+				function/decimal_to_code_byte.c\
 				../../op.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))

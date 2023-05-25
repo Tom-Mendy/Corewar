@@ -27,6 +27,6 @@
         char option_4[3];
     }decimal_to_code_byte_t;
     void free_vm(my_vm_t *my_vm);
-    int decimal_to_code_byte(int nb);
+    int decimal_to_code_byte(int nb, decimal_to_code_byte_t *toto);
 
 #endif /* !MY_VM_H_ */
