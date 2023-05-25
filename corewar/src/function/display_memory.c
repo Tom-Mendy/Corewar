@@ -5,7 +5,6 @@
 ** display_memory
 */
 
-#include <unistd.h>
 #include "corewar.h"
 
 void count_line_display_memory(int line_counter)
