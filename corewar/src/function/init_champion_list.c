@@ -42,6 +42,10 @@ static champion_t *malloc_champion(void)
     champion->load_address = -1;
     champion->prog_number = -1;
     champion->tab_register = NULL;
+    champion->cycle_to_die = CYCLE_TO_DIE;
+    champion->cycle = 0;
+    champion->instruction_in_progress = false;
+    champion->is_alive = true;
     return champion;
 }
 

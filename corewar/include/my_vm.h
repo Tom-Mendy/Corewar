@@ -13,6 +13,10 @@
     typedef struct my_vm_s {
         int dump;
         int *memory;
+        int cycle_to_die;
+        int dump_cycle;
+        int nb_champion_alive;
+        int nb_live;
         champion_list_t *champion_list;
         champion_t **tab_champion;
     } my_vm_t;

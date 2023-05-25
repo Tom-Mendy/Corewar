@@ -26,5 +26,7 @@
     int init_champion_register_program_counter_and_carry
     (champion_t ** tab_champion);
     int display_memory(int *memory);
+    int read_instruction(champion_t *champion, my_vm_t *my_vm);
+    int loop_corewar(my_vm_t *my_vm);
 
 #endif /* !COREWAR_H_ */

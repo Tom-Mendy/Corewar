@@ -32,7 +32,7 @@ int start_vm(char const *argv[])
         free_vm(my_vm);
         return KO;
     }
-    display_memory(my_vm->memory);
+    loop_corewar(my_vm);
     free_vm(my_vm);
     return OK;
 }
