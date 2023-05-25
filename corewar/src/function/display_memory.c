@@ -72,11 +72,13 @@ int display_memory(int *memory)
     }
     write(1, "0    : ", 7);
     for (int i = 0; i < MEM_SIZE; i++) {
-        my_put_char(hex_tab[(memory[i]) / 16]);
-        my_put_char(hex_tab[(memory[i]) % 16]);
+        if (memory[i] != -1) {
+            my_put_char(hex_tab[(memory[i]) / 16]);
+            my_put_char(hex_tab[(memory[i]) % 16]);
+        }
         cols_counter++;
         if (memory[i] == -1)
-            write(1, "0", 1);
+            write(1, "00", 2);
         display_memory_help(i, memory, &line_counter, cols_counter);
     }
     return OK;
