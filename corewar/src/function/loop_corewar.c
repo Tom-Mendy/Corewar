@@ -7,32 +7,19 @@
 
 #include "corewar.h"
 
-int check_champion_instruction_sub(my_vm_t *my_vm, champion_t *champion)
+static void check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
 {
-    if (!my_vm || !champion)
-        return KO;
     if (champion->is_alive == false)
-        return KO;
-    champion->cycle_to_die -= 1;
+        return;
+    champion->cycle_to_die--;
     if (champion->cycle_to_die <= 0) {
         champion->is_alive = false;
-        my_vm->nb_champion_alive -= 1;
+        my_vm->nb_champion_alive--;
     }
     if (champion->cycle > 0) {
-        champion->cycle -= 1;
-        return OK;
+        champion->cycle--;
+        return;
     }
-    return 1;
-}
-
-static int check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
-{
-    int toto = 0;
-    if (!my_vm || !champion)
-        return KO;
-    toto = check_champion_instruction_sub(my_vm, champion);
-    if (toto != 1)
-        return toto;
     if (champion->instruction_in_progress == true) {
 
     } else {
@@ -40,33 +27,24 @@ static int check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
         if (champion->cycle > 0)
             champion->instruction_in_progress = true;
     }
-    champion->cycle -= 1;
-    return OK;
+    champion->cycle--;
 }
 
-static int loop_check_champion_instruction(my_vm_t *my_vm)
+static void loop_check_champion_instruction(my_vm_t *my_vm)
 {
-    if (!my_vm)
-        return KO;
     for (int i = 0; my_vm->tab_champion[i] != NULL; i++) {
         check_champion_instruction(my_vm, my_vm->tab_champion[i]);
     }
-    return OK;
 }
 
 int loop_corewar(my_vm_t *my_vm)
 {
-    if (!my_vm)
-        return KO;
     my_vm->nb_live = 0;
     my_vm->dump_cycle = 0;
     my_vm->cycle_to_die = CYCLE_TO_DIE;
     my_vm->nb_champion_alive = my_list_champion_len(my_vm->champion_list);
-    if (my_vm->nb_champion_alive == -1)
-        return KO;
     while (my_vm->nb_champion_alive > 1) {
-        if (loop_check_champion_instruction(my_vm) == KO)
-            return KO;
+        loop_check_champion_instruction(my_vm);
         my_vm->dump_cycle++;
         if (my_vm->dump_cycle == my_vm->dump)
             display_memory(my_vm->memory);
