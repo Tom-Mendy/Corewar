@@ -20,7 +20,11 @@
         int declaration;
         int call[];
     } asm_function_t;
-
+    typedef struct asm_coding_bytes_s{
+        int len_instruction;
+        int tab_coding_byte[8];
+        int k;
+    }asm_coding_bytes_t;
     int asm_function(char *filename);
     int display_help(void);
     int check_input(char *av[]);
@@ -43,4 +47,6 @@
     function_declaration_usage_place);
     int get_len_body(asm_t *asm_n);
     int check_mn_per_line(char **line);
+    int add_len_by_type_of_param(char *str, int *len_instruction);
+    int add_value_in_array(char **split_line, asm_t *asm_n, int h);
 #endif /* !ASM_H_ */
