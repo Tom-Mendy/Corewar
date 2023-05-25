@@ -6,6 +6,7 @@
 */
 
 #include "corewar.h"
+#include "my_project.h"
 
 static void check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
 {
@@ -41,6 +42,23 @@ static void loop_check_champion_instruction(my_vm_t *my_vm)
     }
 }
 
+static void champion_win(champion_t **tab_champion)
+{
+    int max = 0;
+    int index = 0;
+
+    for (int i = 0; tab_champion[i] != NULL; i++) {
+        if (tab_champion[i]->cycle_to_die > max)
+            index = i;
+    }
+    my_put_str("The player ");
+    my_put_nbr(tab_champion[index]->prog_number);
+    my_put_char('(');
+    my_put_str(tab_champion[index]->header.prog_name);
+    my_put_char(')');
+    my_put_str("has won.\n");
+}
+
 int loop_corewar(my_vm_t *my_vm)
 {
     my_vm->nb_live = 0;
@@ -53,5 +71,6 @@ int loop_corewar(my_vm_t *my_vm)
         if (my_vm->dump_cycle == my_vm->dump)
             display_memory(my_vm->memory);
     }
+    champion_win(my_vm->tab_champion);
     return OK;
 }
