@@ -23,6 +23,7 @@ SRC			=	linked_list/add_node.c	\
 				function/read_instruction.c	\
 				function/launch_instruction.c	\
 				function/vm.c \
+				function/my_int_to_hexa.c	\
 				function/jump_instruction.c	\
 				function/instructions/add.c	\
 				function/instructions/aff.c	\

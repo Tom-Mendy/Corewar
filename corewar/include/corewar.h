@@ -31,5 +31,6 @@
     int launch_instruction(champion_t *champion, my_vm_t *my_vm);
     int jump_instruction(int coding_byte_decimal);
     int jump_instruction_with_index(int coding_byte_decimal);
+    char *int_to_hexa(int nbr);
 
 #endif /* !COREWAR_H_ */
