@@ -21,7 +21,7 @@ int launch_instruction(champion_t *champion, my_vm_t *my_vm)
 
     for (int i = 0; op_tab[i].mnemonique != NULL; i++) {
         if (instruction_type == op_tab[i].code) {
-            return tab_instruction[i - 1](champion, my_vm);
+            return tab_instruction[i](champion, my_vm);
         }
     }
     return OK;

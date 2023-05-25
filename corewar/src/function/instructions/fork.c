@@ -10,6 +10,7 @@
 
 int fork_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "fork\n", 6);
+    champion->program_counter += 3;
+    write(1, "fork\n", 5);
     return OK;
 }

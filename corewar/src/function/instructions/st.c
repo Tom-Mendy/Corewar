@@ -10,6 +10,6 @@
 
 int st_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "st\n", 4);
+    write(1, "st\n", 3);
     return OK;
 }

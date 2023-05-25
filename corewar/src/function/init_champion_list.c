@@ -98,7 +98,7 @@ my_vm_t *init_vm(char const *argv[])
     my_vm->dump = -1;
     if (my_str_cmp(argv[1], "-dump") == 0) {
         if (my_str_is_num(argv[2]) != 1) {
-            write(2, "bad argument, try ./corewar -h\n", 32);
+            write(2, "bad argument, try ./corewar -h\n", 31);
             return NULL;
         }
         my_vm->dump = my_str_to_int(argv[2]);

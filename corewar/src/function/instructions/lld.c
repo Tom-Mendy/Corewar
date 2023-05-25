@@ -10,6 +10,6 @@
 
 int lld_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "lld\n", 5);
+    write(1, "lld\n", 4);
     return OK;
 }

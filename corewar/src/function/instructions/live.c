@@ -10,6 +10,7 @@
 
 int live_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "live\n", 6);
+    champion->program_counter += 5;
+    write(1, "live\n", 5);
     return OK;
 }

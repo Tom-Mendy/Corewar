@@ -10,6 +10,6 @@
 
 int zjmp_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "zjmp\n", 6);
+    write(1, "zjmp\n", 5);
     return OK;
 }

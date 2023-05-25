@@ -10,6 +10,6 @@
 
 int aff_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "aff\n", 5);
+    write(1, "aff\n", 4);
     return OK;
 }

@@ -29,5 +29,7 @@
     int read_instruction(champion_t *champion, my_vm_t *my_vm);
     int loop_corewar(my_vm_t *my_vm);
     int launch_instruction(champion_t *champion, my_vm_t *my_vm);
+    int jump_instruction(int coding_byte_decimal);
+    int jump_instruction_with_index(int coding_byte_decimal);
 
 #endif /* !COREWAR_H_ */
