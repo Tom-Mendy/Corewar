@@ -34,7 +34,10 @@ static void check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
 static void loop_check_champion_instruction(my_vm_t *my_vm)
 {
     for (int i = 0; my_vm->tab_champion[i] != NULL; i++) {
-        check_champion_instruction(my_vm, my_vm->tab_champion[i]);
+        if (my_vm->tab_champion[i]->program_counter -
+        my_vm->tab_champion[i]->load_address <=
+        my_vm->tab_champion[i]->header.prog_size)
+            check_champion_instruction(my_vm, my_vm->tab_champion[i]);
     }
 }
 
