@@ -18,6 +18,7 @@ SRC			=	linked_list/add_node.c	\
 				function/switch_to_tab_champion.c	\
 				function/create_tab_champion.c	\
 				function/init_champion_data.c	\
+				function/display_memory.c	\
 				function/vm.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
