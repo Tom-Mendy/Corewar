@@ -67,7 +67,7 @@ int display_memory(int *memory)
     int line_counter = 0;
 
     if (memory == NULL) {
-        my_put_str("ERROR (dump_memory) : memory == NULL.\n");
+        write(2, "ERROR (dump_memory) : memory == NULL.\n", 38);
         return KO;
     }
     write(1, "0    : ", 7);
