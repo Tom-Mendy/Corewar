@@ -53,7 +53,7 @@ char const *filename)
     int fd = open(filename, O_RDONLY);
 
     if (fd == -1) {
-        if (write(2, "failed to open file\n", 2) == -1)
+        if (write(2, "failed to open file\n", 20) == -1)
             return KO;
         return KO;
     }

@@ -70,11 +70,11 @@ static int swittch_list_to_tab_champion_and_set_and_check_prog_nbr
 
 static my_vm_t *error_message(void)
 {
-    if (write(2, "try with less than ", 20) == -1)
+    if (write(2, "try with less than ", 19) == -1)
         return NULL;
     if (my_put_nbr(4 + 1) == -1)
         return NULL;
-    if (write(2, " champion\n", 11) == -1)
+    if (write(2, " champion\n", 10) == -1)
         return NULL;
     return NULL;
 }
@@ -84,7 +84,7 @@ my_vm_t *create_tab_champion(my_vm_t *my_vm)
     int len_tab = my_list_champion_len(my_vm->champion_list);
     if (len_tab < 2) {
         free_vm(my_vm);
-        if (write(2, "try with more than one champion\n", 33) == -1)
+        if (write(2, "try with more than one champion\n", 32) == -1)
             return NULL;
         return NULL;
     }
