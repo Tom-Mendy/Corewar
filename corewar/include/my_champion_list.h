@@ -19,7 +19,11 @@
         int load_address;
         int *tab_register;
         int program_counter;
+        int cycle_to_die;
         int carry;
+        int cycle;
+        bool instruction_in_progress;
+        bool is_alive;
     } champion_t;
 
     typedef struct champion_list_s {
