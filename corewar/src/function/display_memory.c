@@ -47,7 +47,7 @@ void print_first_column(int line_counter)
     free(hexa);
 }
 
-void display_memory_help(int i, int *memory, int *line_counter,
+void display_memory_help(int i, int *line_counter,
                         int cols_counter)
 {
     if (cols_counter % 32 == 0) {
@@ -79,7 +79,7 @@ int display_memory(int *memory)
         cols_counter++;
         if (memory[i] == -1)
             write(1, "00", 2);
-        display_memory_help(i, memory, &line_counter, cols_counter);
+        display_memory_help(i, &line_counter, cols_counter);
     }
     return OK;
 }
