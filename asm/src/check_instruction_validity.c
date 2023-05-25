@@ -30,7 +30,7 @@ static int check_if_mn(char *str)
 {
     int j = 0;
     int return_value = 0;
-    char **line = spliter(str, " ");
+    char **line = spliter(str, " \t");
     char label_str[2] = { LABEL_CHAR, 0 };
     int len_op_tab = get_len_op_tab();
 

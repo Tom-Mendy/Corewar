@@ -49,8 +49,6 @@ static int fill_array_ld_function(asm_t *asm_n, char **split_line, int h)
 
 int ld_function(asm_t *asm_n, char **split_line, int h)
 {
-    int coding_byte = 0;
-
     if (!asm_n || !split_line || h < 0)
         return KO;
     if ((my_char_map_len(split_line) - h) != 3)

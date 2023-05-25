@@ -59,7 +59,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
 int fill_int_array(asm_t *asm_n, asm_function_t *
 function_declaration_usage_place)
 {
-    char separator[3] = {' ', SEPARATOR_CHAR, 0};
+    char separator[4] = {' ', '\t',SEPARATOR_CHAR, 0};
     asm_n->index_int_tab = 0;
 
     if (!asm_n || !function_declaration_usage_place)
