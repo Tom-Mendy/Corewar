@@ -34,7 +34,7 @@ int jump_instruction_with_index(int coding_byte_decimal)
     nb_indir = nb_parameter("11", coding_byte);
     nb_reg = nb_parameter("01", coding_byte);
     nb_dir = nb_parameter("10", coding_byte);
-    return nb_indir * IND_SIZE + nb_reg * IND_SIZE + nb_dir * IND_SIZE + 2;
+    return nb_indir * IND_SIZE + nb_reg + nb_dir * IND_SIZE + 2;
 }
 
 int jump_instruction(int coding_byte_decimal)
