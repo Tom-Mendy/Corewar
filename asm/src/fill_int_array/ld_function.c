@@ -13,6 +13,9 @@ static int get_coding_bytes_ld_function(char *str)
 {
     int coding_byte = 16;
     int len_instruction = 0;
+
+    if (!str)
+        return -1;
     add_len_by_type_of_param(str, &len_instruction);
     switch (len_instruction){
     case T_DIR:

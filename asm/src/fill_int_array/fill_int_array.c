@@ -9,7 +9,7 @@
 #include "asm.h"
 #include "op.h"
 
-int know_instruction(char **split_line, int j, asm_t *asm_n, int h)
+static int know_instruction(char **split_line, int j, asm_t *asm_n, int h)
 {
     if (!asm_n || !split_line || h < 0 || j < 0)
         return KO;
@@ -21,7 +21,7 @@ int know_instruction(char **split_line, int j, asm_t *asm_n, int h)
     return 1;
 }
 
-int fill_int_array_ter(asm_t *asm_n, int h,
+static int fill_int_array_ter(asm_t *asm_n, int h,
 asm_function_t *function_declaration_usage_place, char **split_line)
 {
     int return_value = 0;
@@ -40,7 +40,7 @@ asm_function_t *function_declaration_usage_place, char **split_line)
     return 1;
 }
 
-int fill_int_array_sub(asm_t *asm_n,
+static int fill_int_array_sub(asm_t *asm_n,
 asm_function_t *function_declaration_usage_place, char **split_line)
 {
     int return_value = 0;

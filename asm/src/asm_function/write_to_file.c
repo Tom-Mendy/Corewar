@@ -14,14 +14,14 @@ int write_to_file(asm_t *asm_n)
 {
     int output_fd = 1;
 
-    if (asm_n->output_filename == NULL || asm_n->header_file == NULL)
+    if (!asm_n || !asm_n->output_filename || !asm_n->header_file)
         return KO;
     output_fd = open(asm_n->output_filename, O_CREAT | O_WRONLY, 00777);
     if (output_fd == -1)
         return KO;
     write(output_fd, asm_n->header_file, sizeof(header_t));
-    for (int i = 0; asm_n->tab_int[i] != NULL; i += 1){
-        for (int j = 0; asm_n->tab_int[i][j] != -1; j += 1){
+    for (int i = 0; asm_n->tab_int[i] != NULL; i += 1) {
+        for (int j = 0; asm_n->tab_int[i][j] != -1; j += 1) {
             write(output_fd, &(asm_n->tab_int[i][j]), 1);
         }
     }

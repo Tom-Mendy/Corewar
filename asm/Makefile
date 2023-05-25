@@ -5,30 +5,30 @@
 ## Makefile
 ##
 
-SRC			=	display_help.c						\
-				asm.c								\
-				generate_output_filename.c			\
-				error_handling.c					\
-				find_name_comment.c					\
-				big_endian_number.c					\
-				clear_commente_in_file.c			\
-				free_end.c							\
-				get_header_information.c			\
-				my_load_clear_file_in_array.c		\
-				initialise_asm_n.c					\
-				../../op.c							\
-				is_register.c						\
-				write_to_file.c						\
-				is_direct.c							\
-				fill_int_array_with_cmd.c			\
-				fill_int_array_with_cmd_sub.c		\
-				check_instruction_validity.c		\
-				check_mn_per_line.c					\
-				fill_int_array.c					\
-				get_len_body.c						\
-				add_len_by_type_of_param.c			\
-				add_value_in_array.c				\
-				ld_function.c						\
+SRC			=	display_help.c												\
+				error_handling.c											\
+				../../op.c													\
+				asm_function/asm.c											\
+				asm_function/generate_output_filename.c						\
+				asm_function/find_name_comment.c							\
+				asm_function/big_endian_number.c							\
+				asm_function/free_end.c										\
+				asm_function/get_header_information.c						\
+				asm_function/initialise_asm_n.c								\
+				asm_function/get_len_body.c									\
+				asm_function/write_to_file.c								\
+				fill_int_array/is_register.c								\
+				fill_int_array/is_direct.c									\
+				fill_int_array/ld_function.c								\
+				fill_int_array/add_len_by_type_of_param.c					\
+				fill_int_array/add_value_in_array.c							\
+				fill_int_array/fill_int_array_with_cmd.c					\
+				fill_int_array/fill_int_array_with_cmd_sub.c				\
+				fill_int_array/fill_int_array.c								\
+				my_load_clear_file_in_array/my_load_clear_file_in_array.c	\
+				my_load_clear_file_in_array/check_instruction_validity.c	\
+				my_load_clear_file_in_array/check_mn_per_line.c				\
+				my_load_clear_file_in_array/clear_commente_in_file.c		\
 
 DIR_SRC		=	$(addprefix src/, $(SRC))
 

@@ -12,7 +12,8 @@
 int main(int const argc, char *argv[])
 {
     if (argc < 2) {
-        write(2, "Error: Incorrect no. of arguments.\n", 36);
+        if (write(2, "Error: Incorrect no. of arguments.\n", 36) == -1)
+            return KO;
         return KO;
     }
     if (my_str_cmp(argv[1], "-h") == 0)
