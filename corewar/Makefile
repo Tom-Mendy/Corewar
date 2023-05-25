@@ -22,6 +22,22 @@ SRC			=	linked_list/add_node.c	\
 				function/loop_corewar.c	\
 				function/read_instruction.c	\
 				function/vm.c \
+				function/instructions/add.c	\
+				function/instructions/aff.c	\
+				function/instructions/and.c	\
+				function/instructions/fork.c	\
+				function/instructions/ld.c	\
+				function/instructions/ldi.c	\
+				function/instructions/lfork.c	\
+				function/instructions/live.c	\
+				function/instructions/lld.c	\
+				function/instructions/lldi.c	\
+				function/instructions/or.c	\
+				function/instructions/st.c	\
+				function/instructions/sti.c	\
+				function/instructions/sub.c	\
+				function/instructions/xor.c	\
+				function/instructions/zjmp.c	\
 				../../op.c
 
 DIR_SRC		=	$(addprefix src/, $(SRC))

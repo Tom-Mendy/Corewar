@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-int and(champion_t *champion_t, my_vm_t *my_vm)
+int and_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "and", 4);
+    write(1, "and\n", 5);
     return OK;
 }

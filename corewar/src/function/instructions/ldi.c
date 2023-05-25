@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-int ldi(champion_t *champion_t, my_vm_t *my_vm)
+int ldi_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "ldi", 4);
+    write(1, "ldi\n", 5);
     return OK;
 }

@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-int add(champion_t *champion_t, my_vm_t *my_vm)
+int add_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "add", 4);
+    write(1, "add\n", 5);
     return OK;
 }

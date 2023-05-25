@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-int sti(champion_t *champion_t, my_vm_t *my_vm)
+int sti_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "sti", 4);
+    write(1, "sti\n", 5);
     return OK;
 }

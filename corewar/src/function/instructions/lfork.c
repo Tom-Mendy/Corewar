@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-int lfork(champion_t *champion_t, my_vm_t *my_vm)
+int lfork_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "lfork", 6);
+    write(1, "lfork\n", 7);
     return OK;
 }

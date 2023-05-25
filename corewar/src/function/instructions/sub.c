@@ -8,8 +8,8 @@
 #include <unistd.h>
 #include "corewar.h"
 
-int sub(champion_t *champion_t, my_vm_t *my_vm)
+int sub_instruction(champion_t *champion, my_vm_t *my_vm)
 {
-    write(1, "sub", 5);
+    write(1, "sub\n", 6);
     return OK;
 }
