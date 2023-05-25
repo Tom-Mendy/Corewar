@@ -16,17 +16,21 @@ static int put_nb_in_struct(int nb, decimal_to_code_byte_t *tab_coding_byte)
 {
     if (nb > 255 || nb < 0 || !tab_coding_byte)
         return KO;
-    for (int i = 0; i < 8; i += 1){
-        if (i == 0 || i == 1)
-            tab_coding_byte->option_4[i] = nb % 2;
-        if (i == 2 || i == 3)
-            tab_coding_byte->option_3[i - 2] = nb % 2;
-        if (i == 4 || i == 5)
-            tab_coding_byte->option_2[i - 4] = nb % 2;
-        if (i == 6 || i == 7)
-            tab_coding_byte->option_1[i - 6] = nb % 2;
-        nb = nb / 2;
-    }
+    tab_coding_byte->option_4[1] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_4[0] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_3[1] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_3[0] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_2[1] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_2[0] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_1[1] = (nb % 2) + '0';
+    nb = nb / 2;
+    tab_coding_byte->option_1[0] = (nb % 2) + '0';
     return OK;
 }
 
