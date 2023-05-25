@@ -11,6 +11,9 @@
 int my_list_champion_len(champion_list_t *list)
 {
     int count = 0;
+
+    if (!list)
+        return -1;
     champion_list_t *list_tmp = list;
     while (list_tmp != NULL) {
         list_tmp = list_tmp->next;

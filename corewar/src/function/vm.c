@@ -10,7 +10,7 @@
 
 void free_vm(my_vm_t *my_vm)
 {
-    if (my_vm == NULL)
+    if (!my_vm)
         return;
     if (my_vm->tab_champion)
         free(my_vm->tab_champion);
@@ -22,7 +22,8 @@ void free_vm(my_vm_t *my_vm)
 int start_vm(char const *argv[])
 {
     my_vm_t *my_vm = NULL;
-    if (argv == NULL)
+
+    if (!argv)
         return KO;
     my_vm = init_vm(argv);
     if (my_vm == NULL)
