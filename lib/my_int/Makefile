@@ -53,7 +53,7 @@ fclean: clean
 re: fclean all
 
 unit_tests:	$(OBJ) $(OBJ_EXT)
-	mkdir unit_tests
+	mkdir -p unit_tests
 	gcc -o unit_tests/unit_tests $(OBJ) $(OBJ_EXT) $(DIR_TESTS) -I include \
 	--coverage -lcriterion
 

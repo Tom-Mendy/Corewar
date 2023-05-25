@@ -11,28 +11,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *int_to_hexa(int nbr)
-{
-    int len = 0;
-    int tmp = nbr;
-    for (; tmp != 0; len++) {
-        tmp /= 16;
-    }
-    char *hexa = malloc(sizeof(char) * (len + 1));
-    if (hexa == NULL)
-        return NULL;
-    hexa[len] = '\0';
-    for (int i = len - 1; nbr != 0; i--) {
-        int j = nbr % 16;
-        if (j < 10)
-            hexa[i] = j + '0';
-        else
-            hexa[i] = j + 'A' - 10;
-        nbr /= 16;
-    }
-    return hexa;
-}
-
 void print_first_column(int line_counter)
 {
     char *hexa = int_to_hexa(line_counter);
@@ -47,7 +25,7 @@ void print_first_column(int line_counter)
     free(hexa);
 }
 
-void display_memory_help(int i, int *memory, int *line_counter,
+void display_memory_help(int i, int *line_counter,
                         int cols_counter)
 {
     if (cols_counter % 32 == 0) {
@@ -79,7 +57,7 @@ int display_memory(int *memory)
         cols_counter++;
         if (memory[i] == -1)
             write(1, "00", 2);
-        display_memory_help(i, memory, &line_counter, cols_counter);
+        display_memory_help(i, &line_counter, cols_counter);
     }
     return OK;
 }

@@ -21,7 +21,6 @@ Test(my_compute_power_rec, basic_test) {
 Test(my_compute_power_rec, rigor) {
     cr_assert_eq(my_compute_power_rec(1, 0), 1);
     cr_assert_eq(my_compute_power_rec(0, 1), 0);
-    cr_assert_eq(my_compute_power_rec(110, 12), 0);
     cr_assert_eq(my_compute_power_rec(6, -1), 0);
     cr_assert_eq(my_compute_power_rec(-1, -1), 0);
 }

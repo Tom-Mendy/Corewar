@@ -24,7 +24,7 @@ char *generate_output_filename(char *filename)
     int nb_char_before_point = 0;
 
     if (!filename)
-        return KO;
+        return NULL;
     nb_char_before_point = count_nb_char_before_point(filename);
     char *output_filename = malloc(sizeof(char) *
     (nb_char_before_point + 4 + 1));
