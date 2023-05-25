@@ -27,12 +27,12 @@ int check_champion_instruction_sub(my_vm_t *my_vm, champion_t *champion)
 
 static int check_champion_instruction(my_vm_t *my_vm, champion_t *champion)
 {
-    int toto = 0;
+    int return_value = 0;
     if (!my_vm || !champion)
         return KO;
-    toto = check_champion_instruction_sub(my_vm, champion);
-    if (toto != 1)
-        return toto;
+    return_value = check_champion_instruction_sub(my_vm, champion);
+    if (return_value != 1)
+        return return_value;
     if (champion->instruction_in_progress == true) {
 
     } else {
