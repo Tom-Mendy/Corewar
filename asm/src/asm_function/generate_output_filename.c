@@ -9,21 +9,23 @@
 #include "asm.h"
 #include "op.h"
 
-int count_nb_char_before_point(char *filename)
+static int count_nb_char_before_point(char *filename)
 {
     int result = 0;
+
+    if (!filename)
+        return -1;
     for (; filename[result] != '\0' && filename[result] != '.' ; result += 1);
     return result;
 }
 
 char *generate_output_filename(char *filename)
 {
-    int nb_char_before_point = count_nb_char_before_point(filename);
-    if (nb_char_before_point != my_str_len(filename)){
-        char *extention = my_str_str(filename, ".s");
-        if (my_str_cmp(extention, ".s") != OK)
-            return NULL;
-    }
+    int nb_char_before_point = 0;
+
+    if (!filename)
+        return KO;
+    nb_char_before_point = count_nb_char_before_point(filename);
     char *output_filename = malloc(sizeof(char) *
     (nb_char_before_point + 4 + 1));
     if (output_filename == NULL)
